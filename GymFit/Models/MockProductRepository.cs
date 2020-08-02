@@ -9,12 +9,9 @@ namespace GymFit.Models
     public class MockProductRepository : IProductRepository
     {
 
-        MockImageRepository _mockImageRepository;
+        MockImageRepository _mockImageRepository = new MockImageRepository();
 
-        public MockProductRepository(MockImageRepository mockImageRepository)
-        {
-            _mockImageRepository = mockImageRepository;
-        }
+     
 
         public IEnumerable<Product> AllProducts => new List<Product>() { 
          new Product {

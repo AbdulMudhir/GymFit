@@ -3,15 +3,38 @@
     <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>@ViewBag.Title</title>
+        <link href="~/Contents/reset.css" rel="stylesheet" />
+        <link href="~/Contents/_layoutStylesheet.css" rel="stylesheet" />
     </head>
 
 
 
     <body>
 
-        @await Component.InvokeAsync("Navigation")
+    
 
-        @RenderBody()
+        <div class="container bg-img">
+            
+
+            <div class="grid-container">
+                <header>
+                    <div class="logo">img</div>
+                    <div class="search-bar"> <input type="text" /></div>
+                    <div class="cart-container">
+                        <a class="admin-portal">Admin Portal</a>
+                        <div class="cart"> cart</div>
+                    </div>
+
+                    @await Component.InvokeAsync("Navigation")
+                </header>
+
+
+                @RenderBody()
+            </div>
+        </div>
+
+
+
         @RenderSection("Scripts", required: false)
     </body>
     </html>
