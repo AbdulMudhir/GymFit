@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Contents\" />
+    <Folder Include="wwwroot\Scripts\" />
+  </ItemGroup>
+
 </Project>
