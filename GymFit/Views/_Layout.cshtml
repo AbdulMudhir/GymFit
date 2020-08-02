@@ -2,6 +2,8 @@
 
     <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <title>@ViewBag.Title</title>
         <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
 
@@ -19,14 +21,17 @@
         <div class="container-fluid">
 
                 <div class="nav-container container">
-                    <div class="logo">
+                    <a href="#" class="logo">
                         Gym Fit <img class="logo-img"   src="~/Images/logo.svg">
-                    </div>
+                    </a>
                     <div class="search-bar"> <input placeholder="Search entire store " type="text" /></div>
                     <div class="cart-container">
                         <a class="admin-portal" href="">Admin Portal</a>
-                        <div class="cart"> <span class="iconify cart-img" data-inline="false" data-icon="ant-design:shopping-cart-outlined" style="color: #ffffff; font-size: 26.630435943603516px;"></span><p class="cart-price"><span class="price-divider">-</span><span id="currency">$</span>400.00</p>
-                        <div class="cart-total">0</div>
+                        <div class="cart"> <div class="cart-img">
+                            <span class="iconify cart-img" data-inline="false" data-icon="ant-design:shopping-cart-outlined" style="color: #ffffff; font-size: 26.630435943603516px;">   
+                               </span><div class="cart-total">0</div> 
+                              </div> <p class="cart-price"><span class="price-divider">-</span><span id="currency">$</span>400.00</p>
+                       
                         </div>
                     </div>
                 </div>

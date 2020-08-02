@@ -18,6 +18,7 @@ namespace GymFit
         public void ConfigureServices(IServiceCollection services)
         {
 
+
             services.AddRazorPages().AddRazorRuntimeCompilation();
             services.AddControllersWithViews().AddJsonOptions(opts => opts.JsonSerializerOptions.PropertyNamingPolicy = null);
             services.AddScoped<IImageRepository, MockImageRepository>();
