@@ -68,6 +68,7 @@ body {
         color: black;
         font-family: Rockwell;
         width: calc(100% - 120px);
+        display:none;
     }
 
     .category-card{
