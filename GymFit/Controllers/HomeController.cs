@@ -26,7 +26,7 @@ namespace GymFit.Controllers
 
             homeViewModel.Products = _productRepository.AllProducts;
 
-            return View();
+            return View(homeViewModel);
         }
     }
 }

@@ -3,6 +3,8 @@
     Layout = "~/Views/_Layout.cshtml";
 }
 
+@model HomeViewModel
+
     <link href="~/Contents/Home.css" rel="stylesheet" />
 
 
@@ -20,25 +22,31 @@
 
         <div class="sales-item">
 
-            <div class="card">
+
+            @foreach (var item in Model.Products)
+            {
+
+
+                <div class="card">
+                    <div class="card-percentage"> @( (int)((@item.Price/ @item.PreviousPrice) *100))%</div>
+                    <div class="card-img"> <img src="/ProductImages/dumbell1.png" /></div>
+                    <div class="card-price">$120 <span class="card-previous-price">$240</span></div>
+                    <a class="card-cart-button">Add to cart</a>
+
+
+                </div>
+            }
+
+            @*<div class="card">
                 <div class="card-percentage"> 50% </div>
-                <div class="card-img"> <img src="/ProductImages/Dumbbell.png" /></div>
+                <div class="card-img"> <img src="/ProductImages/decline-benchpress.jpg" /></div>
                 <div class="card-price">$120 <span class="card-previous-price">$240</span></div>
                 <div class="card-cart-button">Add to cart</div>
 
 
             </div>
 
-            <div class="card">
-                <div class="card-percentage"> 50% </div>
-                <div class="card-img"> <img src="/ProductImages/Dumbbell.png" /></div>
-                <div class="card-price">$120 <span class="card-previous-price">$240</span></div>
-                <div class="card-cart-button">Add to cart</div>
-
-
-            </div>
-
-        </div>
+        </div>*@
 
 
 

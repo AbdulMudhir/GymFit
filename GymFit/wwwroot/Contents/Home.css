@@ -2,7 +2,7 @@
 }
 
 .container-fluid {
-   
+    min-height:100vh;
     background: url(/Images/background1.jpg);
     background-size: cover;
     background-position-x: center;
@@ -11,12 +11,14 @@
 
 
 
-@media(max-height: 500px) and (orientation:landscape) {
+/*@media(max-height:768px) and (max-width:1024px) {
     .container-fluid {
         height: unset;
-        padding-bottom:1.5em;
+        padding-bottom: 1.5em;
     }
-}
+}*/
+
+
 
 @media(max-width:812px ) {
 }
@@ -28,7 +30,7 @@
 .summer-sale {
     width:80%;
     line-height:30px;
-   font-size: 1.5rem;
+   font-size: 1rem;
    color:#d1cece
 }
 
@@ -52,7 +54,6 @@
     justify-content:space-between;
     margin-right:0.7em;
     width: 140px;
-    max-width:240px;
     height:190px;
     background: linear-gradient(180deg, #333333 0%, rgba(0, 0, 0, 0) 100%);
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -86,6 +87,7 @@
        margin: 0 auto;
         width: 100px;
         height: 100px;
+        object-fit:contain;
     }
 
     .card-price{
@@ -134,3 +136,93 @@
         padding-top: 0;
     }
 }
+
+
+
+@media(min-width:500px) {
+    .homepage-content {
+        padding-top: 10em;
+    }
+
+    .summer-sale {
+        font-size: 1.2rem;
+    }
+
+    .headline {
+        margin-top: .1em;
+        font-size: 4rem;
+    }
+
+    .card {
+        margin-right: 2em;
+        height: 350px;
+        width: 280px;
+    }
+
+    .card-img img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .card-price {
+        font-size: 2.622rem;
+    }
+
+    .card-previous-price {
+        font-size: 1rem;
+    }
+
+    .card-cart-button {
+        height: 50px;
+    }
+
+    .card-percentage {
+        width: 60px;
+        height: 60px;
+        font-size: 1rem;
+        top: -17px;
+        right: -12px;
+    }
+}
+
+@media(min-width:768px) {
+    .homepage-content {
+        padding-top: 10em;
+    }
+
+    .summer-sale {
+        font-size: 1.2rem;
+    }
+
+    .headline {
+        margin-top: .1em;
+        font-size: 6rem;
+    }
+}
+
+
+@media(min-width:1440px)
+{
+    .homepage-content{
+        padding-top:4em;
+    }
+    .headline {
+        width: 788px;
+        height: 226px;
+        line-height: 112px;
+        margin-top:1.5rem;
+    }
+    .sales-item{
+        margin-top:3rem;
+    }
+}
+
+@media(min-width:2560px)
+{
+    .homepage-content {
+        padding-top: 8em;
+    }
+
+}
+
+
