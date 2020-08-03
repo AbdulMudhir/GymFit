@@ -19,8 +19,15 @@ using GymFit.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\Abdul\source\repos\GymFit\GymFit\Views\_ViewImports.cshtml"
+using GymFit.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e6140285e481414d114de4cbc551eae3ed747560", @"/Views/Shared/Components/Navigation/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"44b449307d2aa9f296ce4b19c43ef1376c720aad", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bc292a4330ac1fc864546d573b449abcc7591872", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_Navigation_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

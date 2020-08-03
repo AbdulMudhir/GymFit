@@ -6,11 +6,17 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.humburger{
+    position:absolute;
+    right:20px;
+    top:20px;
+}
 .container-fluid {
     width: 100%;
-    height: 100vh;
+    height:100vh;
     background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.67) 0%, #292929 100%);
 }
+
 
     
     
@@ -25,150 +31,172 @@ body {
     .container {
         max-width: 1400px;
         margin: 0 auto;
-        width: 80%;
+        width: 90%;
     }
 
 
 
 .nav-container {
-    padding-top:1.2em;
-    display: flex;
-    justify-content:space-between;
-    align-items:center;
-    height:80px;
-}
-.logo {
-    display: flex;
-    align-items:center;
-    font-size: 1.6rem;
-    font-weight: 700;
-    width: 178px;
-    width: 10%;
-    position:relative;
-}
-.logo-img {
-    display:none;
-    position: absolute;
-    z-index:-1;
-    left:-28px;
-    margin:0;
-    opacity:.6;
-    width:183px;
-   
   
-}
-.search-bar {
-    width: 60%;
-    display: flex;
-    align-items: center;
-    justify-items:center;
-    
-}
-    .search-bar input {
-        background: transparent;
-        border: none;
-        width:100%;
-        color:white;
-        height:25px;
-        padding-bottom:.2em;
-        border-bottom: 1px solid white;
-    }
-
-        .search-bar input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-            color: rgba(235, 235, 235, 0.71);
-            border:none;
-            opacity: 1; /* Firefox */
-        }
-.cart-container {
-    display: flex;
-    justify-content:flex-end;
-    align-items:center;
-    width: 25%;
-    height:25px;
-    
-}
-
-.admin-portal {
-
-    text-decoration:none;
-    color:white;
-    margin: 0 auto;
-
-    font-weight:500;
-}
-    .admin-portal:hover {
-        border-bottom: 1px solid #FF0202;
-    }
-    .cart {
-        width: 50%;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        position:relative;
-    }
-
-.cart-img {
-    position: relative;
-}
-.cart-total {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content:center;
-    top: -10px;
-    left: 18px;
-    color: black;
-    background: white;
-    font-size:.8rem;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
+    display: none;
 }
 
 
-.cart-price {
-    font-weight: 700;
-    margin-left: 1em;
-}
-.price-divider{
-    margin-right:.4em;
-}
+
+
 
 .navigation{
-    height:60px;
-    background:white;
+    display:none;
+    
 }
 
-.nav-content{
-    color:black;
-   display:flex;
-   align-items:center;
-   height:100%;
-}
+@media(min-width:1024px) {
+    .humburger {
+        display: none;
+    }
+
+    .nav-container {
+        padding-top: 1.2em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        font-size: 1.6rem;
+        font-weight: 700;
+        width: 178px;
+        width: 10%;
+        position: relative;
+    }
+
+    .logo-img {
+        display: none;
+        position: absolute;
+        z-index: -1;
+        left: -28px;
+        margin: 0;
+        opacity: .6;
+        width: 183px;
+    }
+
+    .search-bar {
+        width: 60%;
+        display: flex;
+        align-items: center;
+        justify-items: center;
+    }
+
+        .search-bar input {
+            background: transparent;
+            border: none;
+            width: 100%;
+            color: white;
+            height: 25px;
+            padding-bottom: .2em;
+            border-bottom: 1px solid white;
+        }
+
+            .search-bar input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                color: rgba(235, 235, 235, 0.71);
+                border: none;
+                opacity: 1; /* Firefox */
+            }
+
+    .cart-container {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 25%;
+        height: 25px;
+    }
+
+    .admin-portal {
+        text-decoration: none;
+        color: white;
+        margin: 0 auto;
+        font-weight: 500;
+    }
+
+        .admin-portal:hover {
+            border-bottom: 1px solid #FF0202;
+        }
+
+    .cart {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .cart-img {
+        position: relative;
+    }
+
+    .cart-total {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: -10px;
+        left: 18px;
+        color: black;
+        background: white;
+        font-size: .8rem;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+    }
+
+
+    .cart-price {
+        font-weight: 700;
+        margin-left: 1em;
+    }
+
+    .price-divider {
+        margin-right: .4em;
+    }
+
+    .navigation {
+        display:block;
+        height: 60px;
+        background: white;
+    }
+
+    .nav-content {
+        color: black;
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
 
 
     .nav-link a {
         height: 100%;
-        width:120px;
+        width: 120px;
         display: flex;
         align-items: center;
-        justify-content:center;
-        font-size:1.125rem;
-        
-
+        justify-content: center;
+        font-size: 1.125rem;
     }
 
-.nav-active {
-    font-weight: 700;
-    background: #DB030D;
-    color: white;
-    cursor:none;
-}
-.store-button{
-    box-sizing:border-box;
-    position:relative;
-    cursor:pointer;
-}
+    .nav-active {
+        font-weight: 700;
+        background: #DB030D;
+        color: white;
+        cursor: none;
+    }
+
+    .store-button {
+        box-sizing: border-box;
+        position: relative;
+        cursor: pointer;
+    }
 
     .store-arrow-down {
         position: absolute;
@@ -177,3 +205,13 @@ body {
         transform: translateY(-50%) !important;
         font-size: .8em;
     }
+}
+@media(min-width:1024px) and (max-width:1365px) {
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    .cart-container {
+        font-size: .8rem;
+    }
+}

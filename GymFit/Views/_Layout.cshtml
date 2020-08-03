@@ -20,25 +20,28 @@
 
         <div class="container-fluid">
 
-                <div class="nav-container container">
-                    <a href="#" class="logo">
-                        Gym Fit <img class="logo-img"   src="~/Images/logo.svg">
-                    </a>
-                    <div class="search-bar"> <input placeholder="Search entire store " type="text" /></div>
-                    <div class="cart-container">
-                        <a class="admin-portal" href="">Admin Portal</a>
-                        <div class="cart"> <div class="cart-img">
-                            <span class="iconify cart-img" data-inline="false" data-icon="ant-design:shopping-cart-outlined" style="color: #ffffff; font-size: 26.630435943603516px;">   
-                               </span><div class="cart-total">0</div> 
-                              </div> <p class="cart-price"><span class="price-divider">-</span><span id="currency">$</span>400.00</p>
-                       
-                        </div>
+            <div class="nav-container container">
+                <a href="#" class="logo">
+                    Gym Fit <img class="logo-img" src="~/Images/logo.svg">
+                </a>
+                <div class="search-bar"> <input placeholder="Search entire store " type="text" /></div>
+                <div class="cart-container">
+                    <a class="admin-portal" href="">Admin Portal</a>
+                    <div class="cart">
+                        <div class="cart-img">
+                            <span class="iconify cart-img" data-inline="false" data-icon="ant-design:shopping-cart-outlined" style="color: #ffffff; font-size: 26.630435943603516px;">
+                            </span><div class="cart-total">0</div>
+                        </div> <p class="cart-price"><span class="price-divider">-</span><span id="currency">$</span>400.00</p>
+
                     </div>
                 </div>
-                <div class="navigation">
-                    @await Component.InvokeAsync("Navigation")
-                </div>
-           
+            </div>
+            <span class="iconify humburger" data-inline="false" data-icon="cil:hamburger-menu" style="color: #ffffff; font-size: 35px;"></span>
+
+            <div class="navigation">
+                @await Component.InvokeAsync("Navigation")
+            </div>
+
 
 
             <div class="container">
