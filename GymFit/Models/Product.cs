@@ -25,6 +25,9 @@ namespace GymFit.Models
 
         public  IEnumerable<Image>  Images{ get; set; }
 
+
+        public bool IsFrontPageProduct { get; set; }
+
         public bool Sale { get; set; }
     }
 }

@@ -11,15 +11,16 @@ namespace GymFit.Models
 
         MockImageRepository _mockImageRepository = new MockImageRepository();
 
-     
 
-        public IEnumerable<Product> AllProducts => new List<Product>() { 
+
+        public IEnumerable<Product> AllProducts => new List<Product>() {
          new Product {
              ProductId= 1,
              Name="Dumb bells",
              Price = 120,
              PreviousPrice = 240,
              Sale = false,
+             IsFrontPageProduct = true,
              Images = _mockImageRepository.AllImages.Where(i => i.ProductId == 1)
                         },
 
@@ -29,10 +30,14 @@ namespace GymFit.Models
              Price = 120,
              PreviousPrice = 240,
              Sale = false,
+             IsFrontPageProduct = true,
              Images = _mockImageRepository.AllImages.Where(i => i.ProductId == 2)
                         }
 
         };
+
+        public IEnumerable<Product> ProductsForHomePage => AllProducts.Where(p => p.IsFrontPageProduct);
+      
 
         public Product GetProductByID(int id)
         {

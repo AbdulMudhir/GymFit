@@ -12,6 +12,7 @@ namespace GymFit.Models
 
         public Product GetProductByID(int id);
 
+        public IEnumerable<Product> ProductsForHomePage { get; }
 
     }
 }

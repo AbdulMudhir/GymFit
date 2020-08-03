@@ -13,10 +13,31 @@ namespace GymFit.Models
               new Category
               {
                   CategoryId = 1,
+                  Name = "Clothing",
+                  Image = "~/wwwroot/Images/",
+                  
+                 
+              },
+                new Category
+              {
+                  CategoryId = 1,
                   Name = "Equipments",
                   Image = "~/wwwroot/Images/"
-                 
-              }
+
+              },new Category
+              {
+                  CategoryId = 1,
+                  Name = "Equipments",
+                  Image = "~/wwwroot/Images/"
+
+              },
+                new Category
+              {
+                  CategoryId = 1,
+                  Name = "Equipments",
+                  Image = "~/wwwroot/Images/"
+
+              },
 
             };
 

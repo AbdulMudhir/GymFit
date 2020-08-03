@@ -12,14 +12,14 @@ namespace GymFit.Models
             { 
             ImageId = 1,
             ProductId = 1,
-            Url = "~/wwwroot/productimages/dumbbell.png"
+            Url = "/productimages/dumbbell1.png"
             },
 
             new Image
             {
             ImageId = 2,
             ProductId = 2,
-            Url = "~/wwwroot/productimages/decline-benchpress.jpg"
+            Url = "/productimages/decline-benchpress.png"
             },
 
         };
