@@ -1,14 +1,51 @@
-﻿
+﻿@model IEnumerable<Category>
 
-<nav class="container">
+<nav class="container" style="position:relative;">
     <ul class="nav-content">
 
-        <li class="nav-link nav-active"><a href="#">Home</a></li>
-        <li class="nav-link "><a class="store-button">Store<span class="iconify store-arrow-down" data-inline="false" data-icon="dashicons:arrow-down-alt2"></span></a></li>
+        <li class="nav-link nav-active"><a asp-controller="Home" asp-action="index">Home</a></li>
+        <li class="nav-link "><a class="store-button">Store<span class="iconify store-arrow-down" data-inline="false" data-icon="dashicons:arrow-down-alt2"></span></a>
+        
+        
+        
+        </li>
 
     </ul>
 
     <div class="navigation-category">
+
+        @foreach (var category in Model)
+        {
+
+        <div class="category-card">
+
+            <h5 class="category-title">@category.Name</h5>
+
+            <div class="category-img">
+               <a asp-controller="Catalogue" asp-action="category" asp-route-categoryId="@category.CategoryId"><img src="@Url.Content(category.Image)" /></a>
+            </div>
+
+
+            @if (category.SubCategories != null)
+            {
+
+            <ul class="sub-category">
+                @foreach (var subcategory in category.SubCategories)
+                {
+                    <li><a asp-controller="Catalogue" asp-action="subcategory" asp-route-subcategoryId="@subcategory.SubCategoryId"
+                           asp-route-categoryId="@category.CategoryId">@subcategory.Name</a></li>
+
+                }
+            </ul>
+            }
+
+        </div>
+
+        }
+
+
+
+
 
     </div>
 

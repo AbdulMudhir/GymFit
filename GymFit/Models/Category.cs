@@ -15,6 +15,6 @@ namespace GymFit.Models
 
         public string Image { get; set; }
 
-        public Collection<SubCategory>  SubCategories { get; set; }
+        public IEnumerable<SubCategory>  SubCategories { get; set; }
     }
 }

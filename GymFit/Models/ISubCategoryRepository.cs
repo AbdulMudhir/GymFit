@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace GymFit.Models
 {
-    public interface ISubCategory
+    public interface ISubCategoryRepository
     {
 
-        public IEnumerable<SubCategory> AllSubCategories { get; set; }
+        public IEnumerable<SubCategory> AllSubCategories { get; }
     }
 }

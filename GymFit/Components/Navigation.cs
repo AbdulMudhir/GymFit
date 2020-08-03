@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using GymFit.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,17 @@ namespace GymFit.Components
     public class Navigation:ViewComponent
     {
 
+        ICategoryRepository _categoryRepository;
+
+        public Navigation(ICategoryRepository categoryRepository)
+        {
+            _categoryRepository = categoryRepository;
+        }
 
         public IViewComponentResult Invoke()
         {
 
-            return View();
+            return View(_categoryRepository.AllCategory);
 
 
         }
