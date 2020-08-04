@@ -28,9 +28,9 @@
 
 
                 <div class="card">
-                    <div class="card-percentage"> @( (int)((@item.ProductDetail.Price/ @item.ProductDetail.PreviousPrice) *100))%</div>
-                    <div class="card-img"> <img src="@Url.Content(item.ProductDetail.Images.FirstOrDefault().Url)" /></div>
-                    <div class="card-price">£@item.ProductDetail.Price <span class="card-previous-price">£@item.ProductDetail.PreviousPrice</span></div>
+                    <div class="card-percentage"> @( (int)((@item.ProductDetail.FirstOrDefault().Price/ @item.ProductDetail.FirstOrDefault().PreviousPrice) *100))%</div>
+                    <div class="card-img"> <img src="@Url.Content(item.ProductDetail.FirstOrDefault().Images.FirstOrDefault().Url)" /></div>
+                    <div class="card-price">£@item.ProductDetail.FirstOrDefault().Price <span class="card-previous-price">£@item.ProductDetail.FirstOrDefault().PreviousPrice</span></div>
                     <a asp-controller="Product" asp-action="Detail" asp-route-id="@item.ProductId" class="card-cart-button">Add to cart</a>
 
 

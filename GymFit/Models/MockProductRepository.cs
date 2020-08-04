@@ -19,7 +19,8 @@ namespace GymFit.Models
          new Product {
              ProductId= 1,
              Name="Dumb bells",
-             ProductDetail = new ProductDetail{
+             ProductDetail = new List<ProductDetail>{
+             new ProductDetail{
              StockAmount = 2000,
              Price = 120,
              PreviousPrice = 240,
@@ -27,6 +28,8 @@ namespace GymFit.Models
              ProductDetailId = 1,
              CategoryDetail = _mockCategoryRepository.GetSubCategoryForCategoryByID(3, 3),
              Images =  _mockImageRepository.GetImagesByProductDetailId(1)
+
+             }
 
              },
 
@@ -42,15 +45,17 @@ namespace GymFit.Models
              ProductId= 2,
              Name="Decline BenchPress",
 
-             ProductDetail = new ProductDetail{
-             StockAmount = 2000,
-             Price = 120,
-             PreviousPrice = 240,
-             ProductId = 2,
-             ProductDetailId = 2,
-             CategoryDetail = _mockCategoryRepository.GetSubCategoryForCategoryByID(3, 3),
-             Images =  _mockImageRepository.GetImagesByProductDetailId(2)
+             ProductDetail = new List<ProductDetail> {
+                 new ProductDetail{
+                     StockAmount = 2000,
+                     Price = 120,
+                     PreviousPrice = 240,
+                     ProductId = 2,
+                     ProductDetailId = 2,
+                     CategoryDetail = _mockCategoryRepository.GetSubCategoryForCategoryByID(3, 3),
+                     Images =  _mockImageRepository.GetImagesByProductDetailId(2)
 
+                    }
              },
 
              Sale = false,

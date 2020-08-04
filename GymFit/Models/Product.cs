@@ -20,7 +20,7 @@ namespace GymFit.Models
 
         public int ProductDetailId { get; set; }
 
-        public ProductDetail ProductDetail { get; set; }
+        public IEnumerable<ProductDetail> ProductDetail { get; set; }
 
         public bool IsFrontPageProduct { get; set; }
 
