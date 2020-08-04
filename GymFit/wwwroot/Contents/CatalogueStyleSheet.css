@@ -30,15 +30,60 @@
     grid-area: aside;
     margin-top: 2em;
     width: 251px;
-    height: 419px;
+    
     background: #252424;
     padding:2.6875em 1.5em;
 }
+.price-option{
+    margin-top:1.1em;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "low high"
+                          "rangebar rangebar";
+}
 
 
+.lowestPrice {
+    grid-area: low;
+}
 
+.highestPrice {
+    grid-area: high;
+    justify-self:flex-end;
+}
 
+.price-range{
+    grid-area:rangebar;
+}
 
+.price-label {
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 700;
+}
+.brand{
+    margin-top:1.4em;
+}
+.brand-label {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.brand-options{
+    margin-top:1rem;
+}   
+    .brand-options li{
+        margin-bottom:.7em;
+        cursor:pointer;
+    }
+        .brand-options li:hover{
+            text-decoration:underline;
+        }
+        .brand-options li:first-child {
+            color: #EA030E;
+            pointer-events: none;
+        }
 
 .product-grid {
     margin-top: 2em;
