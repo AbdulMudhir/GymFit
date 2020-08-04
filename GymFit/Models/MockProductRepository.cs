@@ -74,12 +74,12 @@ namespace GymFit.Models
 
         public IEnumerable<Product> GetProductsByCategoryId(int id)
         {
-            return AllProducts.Where(p => p.ProductDetail.Where(d => d.CategoryDetail.CategoryId == id) != null);
+            return AllProducts.Where(p => p.ProductDetail.Where(d => d.CategoryDetail.CategoryId == id).Count() != 0);
         }
 
         public IEnumerable<Product> GetProductsBySubCategory(int categoryId, int subcategoryid)
         {
-            return AllProducts.Where(p => p.ProductDetail.Where(d => d.CategoryDetail.CategoryId == categoryId &&  d.CategoryDetail.SubCategory.SubCategoryId == subcategoryid) != null);
+            return AllProducts.Where(p => p.ProductDetail.Where(d => d.CategoryDetail.CategoryId == categoryId &&  d.CategoryDetail.SubCategory.SubCategoryId == subcategoryid).Count() != 0);
         }
     }
 }

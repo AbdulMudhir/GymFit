@@ -90,7 +90,7 @@ namespace GymFit.Models
 
         public Category GetCategoryByID(int id)
         {
-            throw new NotImplementedException();
+            return AllCategory.FirstOrDefault(c => c.CategoryId == id);
         }
 
         public CategoryDetail GetSubCategoryForCategoryByID(int CategoryId, int SubCategoryId)

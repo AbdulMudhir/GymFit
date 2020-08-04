@@ -12,10 +12,12 @@ namespace GymFit.Controllers
     {
 
         private readonly IProductRepository _productRepository;
+        private readonly ICategoryRepository _categoryRepository;
 
-        public CatalogueController(IProductRepository productRepository)
+        public CatalogueController(IProductRepository productRepository, ICategoryRepository categoryRepository)
         {
             _productRepository = productRepository;
+            _categoryRepository = categoryRepository;
         }
 
         public IActionResult Index()
@@ -32,6 +34,8 @@ namespace GymFit.Controllers
 
             CatalogueViewModel catalogueViewModel = new CatalogueViewModel();
 
+            catalogueViewModel.Category = _categoryRepository.GetCategoryByID(categoryId);
+
             catalogueViewModel.Products = _productRepository.GetProductsBySubCategory(categoryId, subcategoryId);
 
             return View("Index", catalogueViewModel);
@@ -41,6 +45,7 @@ namespace GymFit.Controllers
         public IActionResult Index(int categoryId)
         {
             CatalogueViewModel catalogueViewModel = new CatalogueViewModel();
+            catalogueViewModel.Category = _categoryRepository.GetCategoryByID(categoryId);
             catalogueViewModel.Products = _productRepository.GetProductsByCategoryId(categoryId);
 
    

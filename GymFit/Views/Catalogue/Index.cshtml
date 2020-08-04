@@ -14,7 +14,7 @@
 <div class="grid2by2">
 
     <div class="Category-title-container">
-        <h1 class="product-category-title"> Suppliments</h1>
+        <h1 class="product-category-title">@Model.Category.Name</h1>
     </div>
     
     <div class="side-options">
@@ -51,26 +51,32 @@
 
     <div class="product-grid">
 
+
+        @foreach(var item in Model.Products)
+    {
+
+    
+
         <div class="product-card">
 
             <div class="product-percentage">
-                47%
+                @( (int)((@item.ProductDetail.FirstOrDefault().Price/ @item.ProductDetail.FirstOrDefault().PreviousPrice) *100))%
             </div>
 
-            <div class="product-img">
-                <img src="~/ProductImages/Whey.jpg" />
+            <a  asp-controller="Product" asp-action="detail" asp-route-id="@item.ProductId" class="product-img">
+                <img src="@Url.Content(item.ProductDetail.FirstOrDefault().Images.FirstOrDefault().Url)" />
 
-            </div>
-            <div class="productName">
-                <h4>Whey protien 100%</h4>
-            </div>
+            </a>
+            <a asp-controller="Product" asp-action="detail" asp-route-id="@item.ProductId" class="productName">
+                <h4>@item.Name</h4>
+            </a>
 
             <div class="product-price">
                 <div class="current-price">
-                    £40
+                    £@item.ProductDetail.FirstOrDefault().Price
                 </div>
                 <div class="previous-price">
-                    £84
+                    £@item.ProductDetail.FirstOrDefault().PreviousPrice
                 </div>
             </div>
 
@@ -80,37 +86,9 @@
 
         </div>
 
+    }
 
-        <div class="product-card">
-
-            <div class="product-percentage">
-                47%
-            </div>
-
-            <div class="product-img">
-                <img src="~/ProductImages/Whey.jpg" />
-
-            </div>
-            <div class="productName">
-                <h4>Whey protien 100%</h4>
-            </div>
-
-            <div class="product-price">
-                <div class="current-price">
-                    £40
-                </div>
-                <div class="previous-price">
-                    £84
-                </div>
-            </div>
-
-            <div class="add-to-cart-button">
-                Add to Cart
-            </div>
-
-        </div>
-
-
+      
 
     </div>
 
