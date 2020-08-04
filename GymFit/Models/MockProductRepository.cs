@@ -71,5 +71,15 @@ namespace GymFit.Models
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<Product> GetProductsByCategoryId(int id)
+        {
+            return AllProducts.Where(p => p.ProductDetail.Where(d => d.CategoryDetail.CategoryId == id) != null);
+        }
+
+        public IEnumerable<Product> GetProductsBySubCategory(int categoryId, int subcategoryid)
+        {
+            return AllProducts.Where(p => p.ProductDetail.Where(d => d.CategoryDetail.CategoryId == categoryId &&  d.CategoryDetail.SubCategory.SubCategoryId == subcategoryid) != null);
+        }
     }
 }
