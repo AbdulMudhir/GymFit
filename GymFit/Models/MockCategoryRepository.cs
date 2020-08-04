@@ -8,7 +8,7 @@ namespace GymFit.Models
     public class MockCategoryRepository : ICategoryRepository
     {
 
-        MockSubCategoryRepository _mockSubCategoryRepository = new MockSubCategoryRepository();
+        private readonly MockSubCategoryRepository _mockSubCategoryRepository = new MockSubCategoryRepository();
 
         public IEnumerable<Category> AllCategory =>
             new List<Category>
@@ -18,7 +18,20 @@ namespace GymFit.Models
                   CategoryId = 1,
                   Name = "Clothings",
                   Image = "/Images/Clothing.jpg",
-                  SubCategories = _mockSubCategoryRepository.AllSubCategories.Where(s => new List<int>(){ 1,2 }.Contains(s.SubCategoryId) )
+                  CategoryDetails = new List<CategoryDetail>{ 
+                  
+                      new CategoryDetail{ 
+                      CategoryDetailId = 1,
+                      CategoryId = 1,
+                      SubCategory = _mockSubCategoryRepository.GetSubCategoryByID(1)
+                      },
+                        new CategoryDetail{
+                      CategoryDetailId = 2,
+                      CategoryId = 1,
+                      SubCategory = _mockSubCategoryRepository.GetSubCategoryByID(2)
+                      }
+
+                  }
 
               },
                 new Category
@@ -26,14 +39,43 @@ namespace GymFit.Models
                   CategoryId = 2,
                   Name = "FootWears",
                   Image = "/Images/Footwear.jpg",
-                  SubCategories = _mockSubCategoryRepository.AllSubCategories.Where(s => new List<int>(){ 1,2 }.Contains(s.SubCategoryId) )
+                  CategoryDetails = new List<CategoryDetail>{
+
+                      new CategoryDetail{
+                      CategoryDetailId = 3,
+                      CategoryId = 2,
+                      SubCategory = _mockSubCategoryRepository.GetSubCategoryByID(1)
+                      },
+                        new CategoryDetail{
+                      CategoryDetailId = 4,
+                      CategoryId = 2,
+                      SubCategory = _mockSubCategoryRepository.GetSubCategoryByID(2)
+                      }
+
+                  }
 
               },new Category
               {
                   CategoryId = 3,
                   Name = "Equipments",
                   Image = "/Images/equipments.jpg",
-                   SubCategories = _mockSubCategoryRepository.AllSubCategories.Where(s => new List<int>(){3,4 }.Contains(s.SubCategoryId) )
+                  CategoryDetails = new List<CategoryDetail>{
+
+                      new CategoryDetail{
+                      CategoryDetailId = 3,
+                      CategoryId = 3,
+                      SubCategory = _mockSubCategoryRepository.GetSubCategoryByID(3)
+                      },
+                        new CategoryDetail{
+                      CategoryDetailId = 4,
+                      CategoryId = 3,
+                      SubCategory = _mockSubCategoryRepository.GetSubCategoryByID(4)
+                      }
+
+                  }
+
+
+
 
               },
                 new Category
@@ -49,6 +91,12 @@ namespace GymFit.Models
         public Category GetCategoryByID(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public CategoryDetail GetSubCategoryForCategoryByID(int CategoryId, int SubCategoryId)
+        {
+            return AllCategory.FirstOrDefault(c => c.CategoryId == CategoryId)
+                .CategoryDetails.FirstOrDefault(s => s.SubCategory.SubCategoryId == SubCategoryId);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization.Policy;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,8 @@ namespace GymFit.Models
     public class MockProductRepository : IProductRepository
     {
 
-        MockImageRepository _mockImageRepository = new MockImageRepository();
+        private readonly MockImageRepository _mockImageRepository = new MockImageRepository();
+        private readonly MockCategoryRepository _mockCategoryRepository = new MockCategoryRepository();
 
 
 
@@ -17,23 +19,44 @@ namespace GymFit.Models
          new Product {
              ProductId= 1,
              Name="Dumb bells",
+             ProductDetail = new ProductDetail{
+             StockAmount = 2000,
              Price = 120,
              PreviousPrice = 240,
+             ProductId = 1,
+             ProductDetailId = 1,
+             CategoryDetail = _mockCategoryRepository.GetSubCategoryForCategoryByID(3, 3),
+             Images =  _mockImageRepository.GetImagesByProductDetailId(1)
+
+             },
+
              Sale = false,
              IsFrontPageProduct = true,
-             Images = _mockImageRepository.AllImages.Where(i => i.ProductId == 1)
-                        },
+
+
+
+
+         },
 
              new Product {
              ProductId= 2,
              Name="Decline BenchPress",
+
+             ProductDetail = new ProductDetail{
+             StockAmount = 2000,
              Price = 120,
              PreviousPrice = 240,
+             ProductId = 2,
+             ProductDetailId = 2,
+             CategoryDetail = _mockCategoryRepository.GetSubCategoryForCategoryByID(3, 3),
+             Images =  _mockImageRepository.GetImagesByProductDetailId(2)
+
+             },
+
              Sale = false,
              IsFrontPageProduct = true,
-             Images = _mockImageRepository.AllImages.Where(i => i.ProductId == 2)
-                        }
 
+        }
         };
 
         public IEnumerable<Product> ProductsForHomePage => AllProducts.Where(p => p.IsFrontPageProduct);

@@ -3,8 +3,8 @@
 <nav class="container" style="position:relative;">
     <ul class="nav-content">
 
-        <li class="nav-link nav-active"><a asp-controller="Home" asp-action="index">Home</a></li>
-        <li class="nav-link "><a class="store-button">Store<span class="iconify store-arrow-down" data-inline="false" data-icon="dashicons:arrow-down-alt2"></span></a>
+        <li class="nav-link Home"><a asp-controller="Home" asp-action="index">Home</a></li>
+        <li class="nav-link Store"><a class="store-button">Store<span class="iconify store-arrow-down" data-inline="false" data-icon="dashicons:arrow-down-alt2"></span></a>
         
         
         
@@ -26,14 +26,14 @@
             </div>
 
 
-            @if (category.SubCategories != null)
+            @if (category.CategoryDetails != null)
             {
 
             <ul class="sub-category">
-                @foreach (var subcategory in category.SubCategories)
+                @foreach (var subcategory in category.CategoryDetails)
                 {
-                    <li><a asp-controller="Catalogue" asp-action="subcategory" asp-route-subcategoryId="@subcategory.SubCategoryId"
-                           asp-route-categoryId="@category.CategoryId">@subcategory.Name</a></li>
+                    <li><a asp-controller="Catalogue" asp-action="subcategory" asp-route-subcategoryId="@subcategory.SubCategory.SubCategoryId"
+                           asp-route-categoryId="@category.CategoryId">@subcategory.SubCategory.Name</a></li>
 
                 }
             </ul>

@@ -9,5 +9,6 @@ namespace GymFit.Models
     {
 
         public IEnumerable<Image> AllImages { get; }
+        public IEnumerable<Image> GetImagesByProductDetailId(int productDetailId);
     }
 }

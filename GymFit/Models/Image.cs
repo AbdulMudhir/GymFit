@@ -9,7 +9,7 @@ namespace GymFit.Models
     {
         public int ImageId { get; set; }
 
-        public int ProductId { get; set; }
+        public int ProductDetailId { get; set; }
 
         public string Name { get; set; }
 

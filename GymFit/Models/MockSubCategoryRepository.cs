@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace GymFit.Models
 {
+
     public class MockSubCategoryRepository : ISubCategoryRepository
     {
         public IEnumerable<SubCategory> AllSubCategories => new List<SubCategory>
@@ -31,5 +32,10 @@ namespace GymFit.Models
                 Name="Fitness Equipment"
             },
         };
+
+        public SubCategory GetSubCategoryByID(int id)
+        {
+            return AllSubCategories.FirstOrDefault(s => s.SubCategoryId == id);
+        }
     }
 }

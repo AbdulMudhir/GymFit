@@ -9,5 +9,7 @@ namespace GymFit.Models
     {
 
         public IEnumerable<SubCategory> AllSubCategories { get; }
+
+        public SubCategory GetSubCategoryByID(int id);
     }
 }

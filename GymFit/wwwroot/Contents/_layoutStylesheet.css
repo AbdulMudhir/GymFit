@@ -248,6 +248,12 @@ body {
         color: white;
         cursor: none;
     }
+    .Home:hover {
+        font-weight: 700;
+        background: #DB030D;
+        color: white;
+        cursor: none;
+    }
 
     .store-button {
         box-sizing: border-box;

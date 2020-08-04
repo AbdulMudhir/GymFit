@@ -19,11 +19,17 @@
 }*/
 
 
-
+.Home {
+    font-weight: 700;
+    background: #DB030D;
+    color: white;
+    cursor: none;
+    pointer-events:none;
+}
 
 .homepage-content {
-    padding-top:6.875em;
-    box-sizing:border-box;
+    padding-top: 6.875em;
+    box-sizing: border-box;
 }
 
 .summer-sale {

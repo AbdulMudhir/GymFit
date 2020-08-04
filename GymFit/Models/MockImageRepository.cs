@@ -11,17 +11,22 @@ namespace GymFit.Models
         { new Image 
             { 
             ImageId = 1,
-            ProductId = 1,
+            ProductDetailId = 1,
             Url = "/productimages/dumbbell1.png"
             },
 
             new Image
             {
             ImageId = 2,
-            ProductId = 2,
+            ProductDetailId = 2,
             Url = "/productimages/decline-benchpress.png"
             },
 
         };
+
+        public IEnumerable<Image> GetImagesByProductDetailId (int productDetailId)
+        {
+            return AllImages.Where(i => i.ProductDetailId == productDetailId);
+        }
     }
 }

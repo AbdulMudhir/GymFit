@@ -15,16 +15,12 @@ namespace GymFit.Models
 
         public string Name { get; set; }
 
-        public Decimal Price { get; set; }
-        public Decimal PreviousPrice { get; set; }
         public string Safety { get; set; }
         public string Ingredient { get; set; }
-        public int CategoryId { get; set; }
 
-        public Category Category { get; set; }
+        public int ProductDetailId { get; set; }
 
-        public  IEnumerable<Image>  Images{ get; set; }
-
+        public ProductDetail ProductDetail { get; set; }
 
         public bool IsFrontPageProduct { get; set; }
 
