@@ -18,6 +18,9 @@ namespace GymFit.Models
         public string Safety { get; set; }
         public string Ingredient { get; set; }
 
+
+        public string Brand { get; set; }
+
         public int ProductDetailId { get; set; }
 
         public IEnumerable<ProductDetail> ProductDetail { get; set; }
