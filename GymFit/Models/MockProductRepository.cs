@@ -42,6 +42,27 @@ namespace GymFit.Models
          },
 
              new Product {
+             ProductId= 3,
+             Name="Whey Protien 100%",
+
+             ProductDetail = new List<ProductDetail> {
+                 new ProductDetail{
+                     StockAmount = 2000,
+                     Price = 40,
+                     PreviousPrice = 84,
+                     ProductId = 3,
+                     ProductDetailId = 3,
+                     CategoryDetail = _mockCategoryRepository.GetCategoryDetailsForCategory(4),
+                     Images =  _mockImageRepository.GetImagesByProductDetailId(3)
+
+                    }
+             },
+
+             Sale = false,
+             IsFrontPageProduct = false,
+
+        },
+               new Product {
              ProductId= 2,
              Name="Decline BenchPress",
 

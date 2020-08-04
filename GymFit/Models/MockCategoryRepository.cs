@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
 
 namespace GymFit.Models
@@ -82,7 +83,8 @@ namespace GymFit.Models
               {
                   CategoryId = 4,
                   Name = "Suppliments",
-                  Image = "/Images/Suppliment.jpg"
+                  Image = "/Images/Suppliment.jpg",
+                  
 
               },
 
@@ -97,6 +99,13 @@ namespace GymFit.Models
         {
             return AllCategory.FirstOrDefault(c => c.CategoryId == CategoryId)
                 .CategoryDetails.FirstOrDefault(s => s.SubCategory.SubCategoryId == SubCategoryId);
+        }
+
+        public CategoryDetail GetCategoryDetailsForCategory (int categoryId)
+        {
+            var category = AllCategory.FirstOrDefault(c => c.CategoryId == categoryId);
+
+            return new CategoryDetail { CategoryId = category.CategoryId };
         }
     }
 }

@@ -11,7 +11,7 @@ namespace GymFit.Models
         public IEnumerable<Category> AllCategory { get; }
 
         public Category GetCategoryByID(int id);
-
+        public CategoryDetail GetCategoryDetailsForCategory(int categoryId);
         public CategoryDetail GetSubCategoryForCategoryByID(int CategoryId, int SubCategoryId);
     }
 }

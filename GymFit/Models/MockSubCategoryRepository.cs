@@ -31,6 +31,7 @@ namespace GymFit.Models
                 SubCategoryId= 4,
                 Name="Fitness Equipment"
             },
+                    
         };
 
         public SubCategory GetSubCategoryByID(int id)

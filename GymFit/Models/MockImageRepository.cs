@@ -21,7 +21,12 @@ namespace GymFit.Models
             ProductDetailId = 2,
             Url = "/productimages/decline-benchpress.png"
             },
-
+              new Image
+            {
+            ImageId = 3,
+            ProductDetailId = 3,
+            Url = "/productimages/whey.jpg"
+            },
         };
 
         public IEnumerable<Image> GetImagesByProductDetailId (int productDetailId)
