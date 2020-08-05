@@ -393,3 +393,4 @@ C:\Users\Abdul\source\repos\GymFit\GymFit\obj\Debug\netcoreapp3.1\GymFit.csproj.
 C:\Users\Abdul\source\repos\GymFit\GymFit\obj\Debug\netcoreapp3.1\GymFit.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Abdul\source\repos\GymFit\GymFit\obj\Debug\netcoreapp3.1\GymFit.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Abdul\source\repos\GymFit\GymFit\obj\Debug\netcoreapp3.1\Razor\Views\Catalogue\Index.cshtml.g.cs
+C:\Users\Abdul\source\repos\GymFit\GymFit\obj\Debug\netcoreapp3.1\Razor\Views\Product\Detail.cshtml.g.cs

@@ -90,7 +90,7 @@ namespace GymFit.Models
 
         public Product GetProductByID(int id)
         {
-            throw new NotImplementedException();
+            return AllProducts.FirstOrDefault(p => p.ProductId == id);
         }
 
         public IEnumerable<Product> GetProductsByCategoryId(int id)

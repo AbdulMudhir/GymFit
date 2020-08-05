@@ -91,11 +91,12 @@ body {
         font-size: .8rem;
         line-height: 12px;
     }
-        .sub-category li{
-            margin-bottom:.9em;
-            cursor:pointer;
+        .sub-category li {
+            margin-bottom: .9em;
+          
         }
-            .sub-category li:hover{
+          
+                .sub-category li a:hover{
                 text-decoration:underline;
             }
             .sub-category li:last-child {
