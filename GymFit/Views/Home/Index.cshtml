@@ -1,58 +1,62 @@
-﻿@{ 
+﻿@{
 
     Layout = "~/Views/_Layout.cshtml";
 }
 
 @model HomeViewModel
 
-    <link href="~/Contents/Home.css" rel="stylesheet" />
+<link href="~/Contents/Home.css" rel="stylesheet" />
 
 
-    <div class="grid-container homepage-content">
+<div class="grid-container homepage-content">
 
 
-        <heading>
+    <heading>
 
-            <h4 class="summer-sale">Summer sales up to 50% off</h4>
-            <h1 class="headline">Equip yourself for home gym</h1>
-
-
-        </heading>
+        <h4 class="summer-sale">Summer sales up to 50% off</h4>
+        <h1 class="headline">Equip yourself for home gym</h1>
 
 
-        <div class="sales-item">
+    </heading>
 
 
-            @foreach (var item in Model.Products)
-            {
+    <div class="sales-item">
 
 
-                <div class="card">
-                    <div class="card-percentage"> @( (int)((@item.ProductDetail.FirstOrDefault().Price/ @item.ProductDetail.FirstOrDefault().PreviousPrice) *100))%</div>
-                    <div class="card-img"> <img src="@Url.Content(item.ProductDetail.FirstOrDefault().Images.FirstOrDefault().Url)" /></div>
-                    <div class="card-price">£@item.ProductDetail.FirstOrDefault().Price <span class="card-previous-price">£@item.ProductDetail.FirstOrDefault().PreviousPrice</span></div>
-                    <a asp-controller="Product" asp-action="Detail" asp-route-id="@item.ProductId" class="card-cart-button">Add to cart</a>
+        @foreach (var item in Model.Products)
+        {
+
+
+            <div class="card" id="@item.ProductId">
+                <div class="card-percentage"> @( (int)((@item.ProductDetail.FirstOrDefault().Price/ @item.ProductDetail.FirstOrDefault().PreviousPrice) *100))%</div>
+                <a asp-controller="Product" asp-action="Detail" asp-route-id="@item.ProductId" class="card-img"> <img src="@Url.Content(item.ProductDetail.FirstOrDefault().Images.FirstOrDefault().Url)" /></a>
+                <div class="card-price">£<p class="price">@item.ProductDetail.FirstOrDefault().Price</p> <span class="card-previous-price">£@item.ProductDetail.FirstOrDefault().PreviousPrice</span></div>
+                <a class="card-cart-button">Add to cart</a>
+
+
+                <input type="hidden" class="productDetailId" value="@item.ProductDetail.FirstOrDefault().ProductDetailId" />
+                <input type="hidden" class="size-menu" value="1" />
+ 
+            </div>
+        }
+
+        @*<div class="card">
+                    <div class="card-percentage"> 50% </div>
+                    <div class="card-img"> <img src="/ProductImages/decline-benchpress.jpg" /></div>
+                    <div class="card-price">$120 <span class="card-previous-price">$240</span></div>
+                    <div class="card-cart-button">Add to cart</div>
 
 
                 </div>
-            }
 
-            @*<div class="card">
-                <div class="card-percentage"> 50% </div>
-                <div class="card-img"> <img src="/ProductImages/decline-benchpress.jpg" /></div>
-                <div class="card-price">$120 <span class="card-previous-price">$240</span></div>
-                <div class="card-cart-button">Add to cart</div>
-
-
-            </div>
-
-        </div>*@
-
-
-
-            </div>
-
+            </div>*@
 
 
 
     </div>
+
+
+
+
+</div>
+<script src="~/Scripts/sharedCartScript.js"></script>

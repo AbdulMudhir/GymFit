@@ -23,7 +23,7 @@ function addToCart(event) {
     const productDetailId = parentContainer.querySelector(".productDetailId").value;
 
     
-    let price = parseFloat(parentContainer.querySelector(".price").textContent);
+    let price = parseFloat(parentContainer.querySelector(".price").textContent).toFixed(2);
 
 
 

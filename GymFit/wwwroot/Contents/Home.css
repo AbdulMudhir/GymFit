@@ -95,10 +95,12 @@
         object-fit:contain;
     }
 
-    .card-price{
-        font-size:1.2rem;
-        font-weight:700;
-    }
+.card-price {
+    display: flex;
+    font-size: 1.2rem;
+    font-weight: 700;
+    box-sizing: border-box;
+}
 .card-previous-price {
     font-size: .8rem;
     font-weight: 700;

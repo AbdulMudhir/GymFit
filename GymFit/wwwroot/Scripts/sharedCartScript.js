@@ -8,6 +8,7 @@ function updateCartTotalPrice() {
     const cartSession = JSON.parse(sessionStorage.getItem("cart"));
     let totalPrice = 0;
 
+    console.log(cartSession)
 
     for (let i = 0; i < cartSession.length; i++) {
 
@@ -15,10 +16,11 @@ function updateCartTotalPrice() {
 
         totalPrice += cartSession[i].price * cartSession[i].quantity;
 
+        console
 
 
     }
-    cartTotalPrice.textContent = totalPrice;
+    cartTotalPrice.textContent = totalPrice.toFixed(2);
 
 
     if (cartSession.length >= 5) {
@@ -93,9 +95,9 @@ function addProductToCart(product) {
 
         sessionStorage.setItem("cart", JSON.stringify(cart))
 
-        updateCartTotalPrice()
+     
 
 
     }
-
+    updateCartTotalPrice()
 }
