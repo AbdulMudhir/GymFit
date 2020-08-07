@@ -24,7 +24,7 @@
         }
     </div>
 
-    <div class="product-detail-info">
+    <div class="product-detail-info" id="@Model.ProductId">
         <div class="product-name">
             <h1>@Model.Name</h1>
         </div>
@@ -37,7 +37,7 @@
 
                 <div class="product-price">
                     <div class="current-price">
-                        £@productDetails.Price
+                        <span>£</span><p class="price">@productDetails.Price</p>
                     </div>
                     <div class="previous-price">
                         £@productDetails.PreviousPrice
@@ -52,7 +52,7 @@
             <div class="size-container">
                 <label>Size</label>
                 <select class="size-menu prod-select" name="cars" id="cars">
-                    <option value="volvo">Volvo</option>
+                    <option id="1" value="volvo">Volvo</option>
                     <option value="saab">Saab</option>
                    
                 </select>
@@ -61,7 +61,7 @@
             <div class="flavour-container">
                 <label>Flavour</label>
                 <select class="Flavour-menu prod-select" name="cars" id="cars">
-                    <option value="volvo">Extreme Chocolate</option>
+                    <option id="1" value="volvo">Extreme Chocolate</option>
                     <option value="saab">Saab</option>
                     <option value="mercedes">Mercedes</option>
                     <option value="audi">Audi</option>
