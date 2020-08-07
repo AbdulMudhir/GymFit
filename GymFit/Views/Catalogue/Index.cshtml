@@ -7,7 +7,7 @@
 @model CatalogueViewModel
 
 
-    <link href="~/Contents/CatalogueStyleSheet.css" rel="stylesheet" />
+<link href="~/Contents/CatalogueStyleSheet.css" rel="stylesheet" />
 
 
 
@@ -16,7 +16,7 @@
     <div class="Category-title-container">
         <h1 class="product-category-title">@Model.Category.Name</h1>
     </div>
-    
+
     <div class="side-options">
 
         <label class="price-label">Price</label>
@@ -41,7 +41,7 @@
 
 
 
-                </ul>
+            </ul>
 
 
         </div>
@@ -52,46 +52,52 @@
     <div class="product-grid">
 
 
-        @foreach(var item in Model.Products)
-    {
+        @foreach (var item in Model.Products)
+        {
 
-    
 
-        <div class="product-card">
 
-            <div class="product-percentage">
-                @( (int)((@item.ProductDetail.FirstOrDefault().Price/ @item.ProductDetail.FirstOrDefault().PreviousPrice) *100))%
-            </div>
+            <div class="product-card" id="@item.ProductId">
 
-            <a  asp-controller="Product" asp-action="detail" asp-route-id="@item.ProductId" class="product-img">
-                <img src="@Url.Content(item.ProductDetail.FirstOrDefault().Images.FirstOrDefault().Url)" />
-
-            </a>
-            <a asp-controller="Product" asp-action="detail" asp-route-id="@item.ProductId" class="productName">
-                <h4>@item.Name</h4>
-            </a>
-
-            <div class="product-price">
-                <div class="current-price">
-                    £@item.ProductDetail.FirstOrDefault().Price
+                <div class="product-percentage">
+                    @( (int)((@item.ProductDetail.FirstOrDefault().Price/ @item.ProductDetail.FirstOrDefault().PreviousPrice) *100))%
                 </div>
-                <div class="previous-price">
-                    £@item.ProductDetail.FirstOrDefault().PreviousPrice
+
+                <a asp-controller="Product" asp-action="detail" asp-route-id="@item.ProductId" class="product-img">
+                    <img src="@Url.Content(item.ProductDetail.FirstOrDefault().Images.FirstOrDefault().Url)" />
+
+                </a>
+                <a asp-controller="Product" asp-action="detail" asp-route-id="@item.ProductId" class="productName">
+                    <h4>@item.Name</h4>
+                </a>
+
+                <div class="product-price">
+                    <div class="current-price">
+                        £<p class="price">@item.ProductDetail.FirstOrDefault().Price</p>
+                    </div>
+                    <div class="previous-price">
+                        £@item.ProductDetail.FirstOrDefault().PreviousPrice
+                    </div>
                 </div>
+
+                <input type="hidden" class="productDetailId" value="@item.ProductDetail.FirstOrDefault().ProductDetailId"/>
+                <input type="hidden" class="size-menu" value="1" />
+                <input type="hidden" class="Flavour-menu" value="1"/>
+
+                <div class="add-to-cart-button">
+                    Add to Cart
+                </div>
+
             </div>
 
-            <div class="add-to-cart-button">
-                Add to Cart
-            </div>
+        }
 
-        </div>
 
-    }
-
-      
 
     </div>
 
 
 
 </div>
+<script src="~/Scripts/sharedCartScript.js"></script>
+<script src="~/Scripts/CatalogueCart.js"></script>

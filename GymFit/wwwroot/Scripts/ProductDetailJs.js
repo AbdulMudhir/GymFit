@@ -61,96 +61,16 @@ function addToCart(event) {
         }
     }
 
-
-const cartSession = sessionStorage.getItem("cart");
-
-    const cartTotal = document.querySelector(".cart-total");
-
-    let currentCartTotal = parseInt(cartTotal.textContent);
-
-    if (cartSession == "") {
-
-
-        const product = {
-            id: parseInt(productDetailId),
-            productID: parseInt(productID),
-            name: productName,
-            size: sizeMenu,
-            price: price,
-            flavour: flavourMenu,
-            quantity: 1,
-        }
-
-
-        cartTotal.textContent = currentCartTotal + 1;
-     
-
-        const cart = `[${JSON.stringify(product)}]`;
-
-        sessionStorage.setItem("cart", cart);
-
-
-    }
-    else {
-
-        const cart = JSON.parse(cartSession);
-
-        let found = false;
-
-        for (let i = 0; i < cart.length; i++) {
-
-
-            //console.log(parseInt(productDetailId))
-
-            if (cart[i].id === parseInt(productDetailId) &&
-                cart[i].productID === parseInt(productID)) {
-                found = true;
-               
-                cart[i].quantity += 1;
-                break;
-            }
-            else {
-                found = false
-            }
-
-
-
-        }
-
-        if (!found) {
-            const product = {
-                id: parseInt(productDetailId),
-                productID: parseInt(productID),
-                name: productName,
-                size: sizeMenu,
-                price: price,
-                flavour: flavourMenu,
-                quantity: 1,
-            }
-
-            cart.push(product);
-
-            if (currentCartTotal >= 10) {
-                cartTotal.textContent = "10+";
-            }
-            else {
-
-                cartTotal.textContent = currentCartTotal + 1;
-            }
-         
-
-        }
-
-     
-
-
-        sessionStorage.setItem("cart", JSON.stringify(cart))
-      
-
-
-
+    const product = {
+        id: parseInt(productDetailId),
+        productID: parseInt(productID),
+        name: productName,
+        size: sizeMenu,
+        price: price,
+        flavour: flavourMenu,
+        quantity: 1,
     }
 
-    console.log(JSON.parse(sessionStorage.getItem("cart")));
-    updateCartTotalPrice()
+    addProductToCart(product)
+   
 }
