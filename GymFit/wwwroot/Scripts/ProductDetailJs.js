@@ -21,3 +21,11 @@ sizeMenuButton.addEventListener("change", (event) => {
     imageContainer.children[selectedIndex].style.display = "block";
 
 })
+
+const backButton = document.querySelector(".back-container");
+backButton.addEventListener("click", (event) => {
+
+    window.history.back();
+
+
+})

@@ -12,7 +12,8 @@
 
 
     <div class="back-container">
-        <h1 class="back-container-title">Back to previous</h1>
+        <span class="iconify" data-inline="false" data-icon="ic:sharp-arrow-back-ios"></span>
+        <h1 class="back-container-title">  Back to previous</h1>
     </div>
 
     <div class="product-detail-img-container">
@@ -53,8 +54,7 @@
                 <select class="size-menu prod-select" name="cars" id="cars">
                     <option value="volvo">Volvo</option>
                     <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
+                   
                 </select>
             </div>
 
@@ -80,17 +80,26 @@
     </div>
 
 
+
     <div class="product-safety">
-        May contain- Gluten, Egg, Nuts and Peanuts.
+        <label class="product-label">Safety</label>
+        <p class="product-content">@Model.Safety</p>
 
 
     </div>
+
+    @if (Model.ProductDetail.FirstOrDefault().CategoryDetail.CategoryId == 4)
+    {
     <div class="product-ingredient">
-        Protein Blend (Whey Protein Isolates [contains Emulsifier: Soy Lecithin], Whey Protein Concentrate, Whey Peptides), Fat-Reduced Cocoa Powder, Flavorings, Sweeteners (Acesulfame Potassium, Sucralose), Enzyme Complex (Amylase, Protease, Cellulase, Beta-D-Galactosidase, Lipase)
+        <label class="product-label">Ingredient </label>
+        <p class="product-content">@Model.Ingredient</p >
     </div>
+    }
     <div class="product-description">
-        Optimum Nutrition’s Gold Standard Whey has been the world’s no 1 choice in whey protein powder for over 20 years. Having constantly refined their formula, the current incarnation of ON’s Gold Standard Whey is the most efficient and fast-absorbing yet, using whey protein isolates as the key ingredient, which help your muscles build and repair. Low quantities of sugar and fat keep things on the healthy side. Gold Standard Whey’s instantised ready-to-mix formula means you can enjoy it any time of day, whether shaken up in a bottle or as an addition to your
-        favourite meals and drinks. Available in 1, 2, 5, 7 and 10-pound options. NOTE:Not every product has a hologram on the neck seal .
+        <label class="product-label"> Product Description</label>
+        <p class="product-content">
+            @Model.Description
+        </p>
     </div>
 
 

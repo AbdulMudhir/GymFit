@@ -67,7 +67,15 @@ namespace GymFit.Models
 
                     }
              },
-           
+            
+             Safety = "May contain- Gluten, Egg, Nuts and Peanuts.",
+             Ingredient = "Protein Blend (Whey Protein Isolates [contains Emulsifier: Soy Lecithin], Whey Protein Concentrate, Whey Peptides), Fat-Reduced Cocoa Powder, Flavorings, Sweeteners (Acesulfame Potassium, Sucralose), Enzyme Complex (Amylase, Protease, Cellulase," +
+                 " Beta-D-Galactosidase, Lipase)",
+             Description = " Optimum Nutrition’s Gold Standard Whey has been the world’s no 1 choice in whey protein powder for over 20 years. Having constantly refined their formula, the current incarnation of ON’s Gold Standard Whey is the most efficient and fast-absorbing yet, using whey protein isolates as the key ingredient, which help your muscles build and repair. Low quantities of sugar and fat keep things on the healthy side. Gold Standard Whey’s instantised ready-to-mix formula means you can enjoy it any time of day, whether shaken up in a bottle or as an addition to your"+
+            "favourite meals and drinks. Available in 1, 2, 5, 7 and 10-pound options. NOTE:Not every product has a hologram on the neck seal .",
+
+
+             Brand = "WHEY",
              Sale = false,
              IsFrontPageProduct = false,
 

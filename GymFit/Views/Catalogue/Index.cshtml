@@ -35,13 +35,14 @@
             <ul class="brand-options">
 
                 <li>All</li>
-                <li>Whey</li>
-                <li>Whey</li>
-                <li>Whey</li>
-                <li>Whey</li>
+                @foreach (var item in Model.Products)
+                {
+                    <li>@item.Brand</li>
+                }
 
 
-            </ul>
+
+                </ul>
 
 
         </div>
