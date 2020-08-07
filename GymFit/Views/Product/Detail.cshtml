@@ -52,9 +52,9 @@
             <div class="size-container">
                 <label>Size</label>
                 <select class="size-menu prod-select" name="cars" id="cars">
-                    <option id="1" value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                   
+                    <option  value="1">Volvo</option>
+                    <option value="2">Saab</option>
+
                 </select>
             </div>
 
@@ -90,10 +90,10 @@
 
     @if (Model.ProductDetail.FirstOrDefault().CategoryDetail.CategoryId == 4)
     {
-    <div class="product-ingredient">
-        <label class="product-label">Ingredient </label>
-        <p class="product-content">@Model.Ingredient</p >
-    </div>
+        <div class="product-ingredient">
+            <label class="product-label">Ingredient </label>
+            <p class="product-content">@Model.Ingredient</p>
+        </div>
     }
     <div class="product-description">
         <label class="product-label"> Product Description</label>
@@ -108,4 +108,5 @@
 
 
 </div>
+<script src="~/Scripts/sharedCartScript.js"></script>
 <script src="~/Scripts/ProductDetailJs.js"></script>

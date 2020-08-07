@@ -40,8 +40,13 @@ function addToCart(event) {
     const parentContainer = event.target.parentElement
     const productID = parentContainer.attributes["id"].value;
     const productName = parentContainer.querySelector(".product-name h1").textContent;
-    const sizeMenu = parentContainer.querySelector(".size-menu").value;
+    const sizeMenu = parentContainer.querySelector(".size-menu");
     const flavourMenu = parentContainer.querySelector(".Flavour-menu").value;
+
+    const productDetailId = sizeMenu.value;
+
+  
+
     let price = 0;
 
    
@@ -56,22 +61,31 @@ function addToCart(event) {
         }
     }
 
-    const cartSession = sessionStorage.getItem("cart");
 
- 
+const cartSession = sessionStorage.getItem("cart");
+
+    const cartTotal = document.querySelector(".cart-total");
+
+    let currentCartTotal = parseInt(cartTotal.textContent);
+
     if (cartSession == "") {
 
 
         const product = {
-            id: parseInt(productID),
+            id: parseInt(productDetailId),
+            productID: parseInt(productID),
             name: productName,
             size: sizeMenu,
             price: price,
             flavour: flavourMenu,
-            count: 0,
+            quantity: 1,
         }
 
-        const cart = [JSON.stringify(product)];
+
+        cartTotal.textContent = currentCartTotal + 1;
+     
+
+        const cart = `[${JSON.stringify(product)}]`;
 
         sessionStorage.setItem("cart", cart);
 
@@ -79,17 +93,64 @@ function addToCart(event) {
     }
     else {
 
-
         const cart = JSON.parse(cartSession);
-        console.log(cart)
+
+        let found = false;
+
         for (let i = 0; i < cart.length; i++) {
 
-            console.log(cart[i]);
+
+            //console.log(parseInt(productDetailId))
+
+            if (cart[i].id === parseInt(productDetailId) &&
+                cart[i].productID === parseInt(productID)) {
+                found = true;
+               
+                cart[i].quantity += 1;
+                break;
+            }
+            else {
+                found = false
+            }
+
+
+
         }
+
+        if (!found) {
+            const product = {
+                id: parseInt(productDetailId),
+                productID: parseInt(productID),
+                name: productName,
+                size: sizeMenu,
+                price: price,
+                flavour: flavourMenu,
+                quantity: 1,
+            }
+
+            cart.push(product);
+
+            if (currentCartTotal >= 10) {
+                cartTotal.textContent = "10+";
+            }
+            else {
+
+                cartTotal.textContent = currentCartTotal + 1;
+            }
+         
+
+        }
+
+     
+
+
+        sessionStorage.setItem("cart", JSON.stringify(cart))
+      
+
 
 
     }
 
-
-   
+    console.log(JSON.parse(sessionStorage.getItem("cart")));
+    updateCartTotalPrice()
 }
