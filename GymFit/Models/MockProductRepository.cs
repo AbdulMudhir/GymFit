@@ -55,9 +55,19 @@ namespace GymFit.Models
                      CategoryDetail = _mockCategoryRepository.GetCategoryDetailsForCategory(4),
                      Images =  _mockImageRepository.GetImagesByProductDetailId(3)
 
+                    },
+                  new ProductDetail{
+                     StockAmount = 2000,
+                     Price = 20,
+                     PreviousPrice = 324,
+                     ProductId = 3,
+                     ProductDetailId = 4,
+                     CategoryDetail = _mockCategoryRepository.GetCategoryDetailsForCategory(4),
+                     Images =  _mockImageRepository.GetImagesByProductDetailId(4)
+
                     }
              },
-
+           
              Sale = false,
              IsFrontPageProduct = false,
 

@@ -27,6 +27,12 @@ namespace GymFit.Models
             ProductDetailId = 3,
             Url = "/productimages/whey.jpg"
             },
+               new Image
+            {
+            ImageId = 3,
+            ProductDetailId = 4,
+            Url = "/productimages/bigwhey.png"
+            },
         };
 
         public IEnumerable<Image> GetImagesByProductDetailId (int productDetailId)

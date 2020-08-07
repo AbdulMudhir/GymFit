@@ -9,14 +9,18 @@
 
 <div class="product-detail-grid">
 
-   
+
 
     <div class="back-container">
         <h1 class="back-container-title">Back to previous</h1>
     </div>
 
-    <div class="product-detail-img">
-        <img src="@Url.Content(Model.ProductDetail.FirstOrDefault().Images.FirstOrDefault().Url)"/>
+    <div class="product-detail-img-container">
+        @foreach (var images in Model.ProductDetail)
+        {
+            <img class="detail-img" src="@Url.Content(images.Images.FirstOrDefault().Url)" />
+
+        }
     </div>
 
     <div class="product-detail-info">
@@ -24,13 +28,22 @@
             <h1>@Model.Name</h1>
         </div>
 
-        <div class="product-price">
-            <div class="current-price">
-                £@Model.ProductDetail.FirstOrDefault().Price
-            </div>
-            <div class="previous-price">
-                £@Model.ProductDetail.FirstOrDefault().PreviousPrice
-            </div>
+
+        <div class="price-container">
+
+            @foreach (var productDetails in Model.ProductDetail)
+            {
+
+                <div class="product-price">
+                    <div class="current-price">
+                        £@productDetails.Price
+                    </div>
+                    <div class="previous-price">
+                        £@productDetails.PreviousPrice
+                    </div>
+                </div>
+
+            }
         </div>
 
         <div class="option-containers">
@@ -53,7 +66,7 @@
                     <option value="mercedes">Mercedes</option>
                     <option value="audi">Audi</option>
                 </select>
-              
+
 
             </div>
 
@@ -66,23 +79,24 @@
 
     </div>
 
-    
-        <div class="product-safety">
-            May contain- Gluten, Egg, Nuts and Peanuts.
+
+    <div class="product-safety">
+        May contain- Gluten, Egg, Nuts and Peanuts.
 
 
-        </div>
-        <div class="product-ingredient">
-            Protein Blend (Whey Protein Isolates [contains Emulsifier: Soy Lecithin], Whey Protein Concentrate, Whey Peptides), Fat-Reduced Cocoa Powder, Flavorings, Sweeteners (Acesulfame Potassium, Sucralose), Enzyme Complex (Amylase, Protease, Cellulase, Beta-D-Galactosidase, Lipase)
-        </div>
-        <div class="product-description">
-            Optimum Nutrition’s Gold Standard Whey has been the world’s no 1 choice in whey protein powder for over 20 years. Having constantly refined their formula, the current incarnation of ON’s Gold Standard Whey is the most efficient and fast-absorbing yet, using whey protein isolates as the key ingredient, which help your muscles build and repair. Low quantities of sugar and fat keep things on the healthy side. Gold Standard Whey’s instantised ready-to-mix formula means you can enjoy it any time of day, whether shaken up in a bottle or as an addition to your 
-            favourite meals and drinks. Available in 1, 2, 5, 7 and 10-pound options. NOTE:Not every product has a hologram on the neck seal .
-        </div>
-   
+    </div>
+    <div class="product-ingredient">
+        Protein Blend (Whey Protein Isolates [contains Emulsifier: Soy Lecithin], Whey Protein Concentrate, Whey Peptides), Fat-Reduced Cocoa Powder, Flavorings, Sweeteners (Acesulfame Potassium, Sucralose), Enzyme Complex (Amylase, Protease, Cellulase, Beta-D-Galactosidase, Lipase)
+    </div>
+    <div class="product-description">
+        Optimum Nutrition’s Gold Standard Whey has been the world’s no 1 choice in whey protein powder for over 20 years. Having constantly refined their formula, the current incarnation of ON’s Gold Standard Whey is the most efficient and fast-absorbing yet, using whey protein isolates as the key ingredient, which help your muscles build and repair. Low quantities of sugar and fat keep things on the healthy side. Gold Standard Whey’s instantised ready-to-mix formula means you can enjoy it any time of day, whether shaken up in a bottle or as an addition to your
+        favourite meals and drinks. Available in 1, 2, 5, 7 and 10-pound options. NOTE:Not every product has a hologram on the neck seal .
+    </div>
+
 
 
 
 
 
 </div>
+<script src="~/Scripts/ProductDetailJs.js"></script>

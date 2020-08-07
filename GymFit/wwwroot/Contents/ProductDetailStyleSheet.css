@@ -20,25 +20,49 @@
     grid-area:back;
 }
 
-.product-detail-img{
+.product-detail-img-container{
     grid-area:image;
     width:400px;
     height:400px;
+    position:relative;
 }
-.product-detail-img img{
-    width:100%;
-    object-fit:contain;
-}
+    .product-detail-img-container img {
+        width: 100%;
+        object-fit: contain;
+        position:absolute;
+        display:none;
+    }
+        .product-detail-img-container img:first-child{
+            z-index:1;
+            display:block;
+        }
+
+
+
 .product-detail-info {
     grid-area: info;
-    display:flex;
-    flex-flow:column;
-    justify-content:space-between;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
 }
 
-.product-price{
-    display:flex;
+
+.price-container {
+    position: relative;
 }
+
+    .price-container .product-price {
+        position: absolute;
+        display: none;
+        top:-25px;
+    }
+
+        .price-container .product-price:first-child {
+            z-index: 1;
+            display: flex;
+        }
+
+
 
 .current-price {
     font-size: 50px;
@@ -56,10 +80,9 @@
     display:flex;
 }
 .size-container{
-    width: 30%;
+    margin-right:1em;
 }
 .flavour-container{
-    width:60%;
 }
 
 .size-menu {
