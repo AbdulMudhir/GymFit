@@ -33,7 +33,7 @@ namespace GymFit
             services.AddControllersWithViews().AddJsonOptions(opts => opts.JsonSerializerOptions.PropertyNamingPolicy = null);
             services.AddScoped<IImageRepository, MockImageRepository>();
 
-            services.AddScoped<ICategoryRepository, MockCategoryRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductRepository, MockProductRepository>();
             services.AddScoped<ShoppingCart>( sp => ShoppingCart.createShoppingCart(sp));
 
