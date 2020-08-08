@@ -31,10 +31,9 @@ namespace GymFit
 
             services.AddRazorPages().AddRazorRuntimeCompilation();
             services.AddControllersWithViews().AddJsonOptions(opts => opts.JsonSerializerOptions.PropertyNamingPolicy = null);
-            services.AddScoped<IImageRepository, MockImageRepository>();
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
-            services.AddScoped<IProductRepository, MockProductRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ShoppingCart>( sp => ShoppingCart.createShoppingCart(sp));
 
             services.AddHttpContextAccessor();

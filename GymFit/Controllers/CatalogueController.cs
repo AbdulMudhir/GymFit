@@ -36,7 +36,7 @@ namespace GymFit.Controllers
 
             catalogueViewModel.Category = _categoryRepository.GetCategoryByID(categoryId);
 
-            catalogueViewModel.Products = _productRepository.GetProductsBySubCategory(categoryId, subcategoryId);
+            //catalogueViewModel.Products = _productRepository.GetProductsBySubCategory(categoryId, subcategoryId);
 
             return View("Index", catalogueViewModel);
         }

@@ -36,7 +36,7 @@
                 <li>All</li>
                 @foreach (var item in Model.Products)
                 {
-                    <li>@item.Brand</li>
+                    <li>@item.Product.Brand</li>
                 }
 
 
@@ -60,27 +60,27 @@
             <div class="product-card" id="@item.ProductId">
 
                 <div class="product-percentage">
-                    @( (int)((@item.ProductDetail.FirstOrDefault().Price/ @item.ProductDetail.FirstOrDefault().PreviousPrice) *100))%
+                    @( (int)((@item.Price/ @item.PreviousPrice) *100))%
                 </div>
 
                 <a asp-controller="Product" asp-action="detail" asp-route-id="@item.ProductId" class="product-img">
-                    <img src="@Url.Content(item.ProductDetail.FirstOrDefault().Images.FirstOrDefault().Url)" />
+                    <img src="@Url.Content(item.Images.FirstOrDefault().Url)" />
 
                 </a>
                 <a asp-controller="Product" asp-action="detail" asp-route-id="@item.ProductId" class="productName">
-                    <h4>@item.Name</h4>
+                    <h4>@item.Product.Name</h4>
                 </a>
 
                 <div class="product-price">
                     <div class="current-price">
-                        £<p class="price">@item.ProductDetail.FirstOrDefault().Price</p>
+                        £<p class="price">@item.Price</p>
                     </div>
                     <div class="previous-price">
-                        £@item.ProductDetail.FirstOrDefault().PreviousPrice
+                        £@item.PreviousPrice
                     </div>
                 </div>
 
-                <input type="hidden" class="productDetailId" value="@item.ProductDetail.FirstOrDefault().ProductDetailId" />
+                <input type="hidden" class="productDetailId" value="@item.ProductDetailId" />
                 <input type="hidden" class="size-menu" value="1" />
                 <input type="hidden" class="Flavour-menu" value="1" />
 

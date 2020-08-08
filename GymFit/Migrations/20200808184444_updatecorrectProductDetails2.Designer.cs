@@ -3,14 +3,16 @@ using GymFit.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GymFit.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20200808184444_updatecorrectProductDetails2")]
+    partial class updatecorrectProductDetails2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -119,12 +121,6 @@ namespace GymFit.Migrations
                             CategoryDetailId = 6,
                             CategoryId = 3,
                             SubCategoryId = 4
-                        },
-                        new
-                        {
-                            CategoryDetailId = 7,
-                            CategoryId = 4,
-                            SubCategoryId = 5
                         });
                 });
 
@@ -310,7 +306,7 @@ namespace GymFit.Migrations
                         new
                         {
                             ProductDetailId = 1,
-                            CategoryDetailId = 5,
+                            CategoryDetailId = 3,
                             PreviousPrice = 240m,
                             Price = 120m,
                             ProductId = 1,
@@ -321,7 +317,7 @@ namespace GymFit.Migrations
                         new
                         {
                             ProductDetailId = 2,
-                            CategoryDetailId = 7,
+                            CategoryDetailId = 4,
                             PreviousPrice = 84m,
                             Price = 40m,
                             ProductId = 3,
@@ -332,7 +328,7 @@ namespace GymFit.Migrations
                         new
                         {
                             ProductDetailId = 3,
-                            CategoryDetailId = 7,
+                            CategoryDetailId = 4,
                             PreviousPrice = 324m,
                             Price = 20m,
                             ProductId = 3,
@@ -343,7 +339,7 @@ namespace GymFit.Migrations
                         new
                         {
                             ProductDetailId = 4,
-                            CategoryDetailId = 7,
+                            CategoryDetailId = 4,
                             PreviousPrice = 84m,
                             Price = 40m,
                             ProductId = 2,
@@ -354,7 +350,7 @@ namespace GymFit.Migrations
                         new
                         {
                             ProductDetailId = 5,
-                            CategoryDetailId = 7,
+                            CategoryDetailId = 4,
                             PreviousPrice = 324m,
                             Price = 20m,
                             ProductId = 2,
@@ -365,7 +361,7 @@ namespace GymFit.Migrations
                         new
                         {
                             ProductDetailId = 6,
-                            CategoryDetailId = 6,
+                            CategoryDetailId = 3,
                             PreviousPrice = 240m,
                             Price = 120m,
                             ProductId = 4,
@@ -409,10 +405,6 @@ namespace GymFit.Migrations
                         {
                             SubCategoryId = 4,
                             Name = "Fitness Equipment"
-                        },
-                        new
-                        {
-                            SubCategoryId = 5
                         });
                 });
 

@@ -11,6 +11,7 @@ namespace GymFit.Models
 
         public string Name { get; set; }
 
-      
+
+
     }
 }

@@ -9,7 +9,7 @@ namespace GymFit.ViewModels
     public class CatalogueViewModel
     {
 
-       public  IEnumerable<Product> Products { get; set; }
+       public  IEnumerable<ProductDetail> Products { get; set; }
 
         public Category Category { get; set; }
     }

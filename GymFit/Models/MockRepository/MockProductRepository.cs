@@ -152,14 +152,14 @@ namespace GymFit.Models
             return AllProducts.FirstOrDefault(p => p.ProductId == id);
         }
 
-        public IEnumerable<Product> GetProductsByCategoryId(int id)
+        public IEnumerable<ProductDetail> GetProductsByCategoryId(int id)
         {
-            return AllProducts.Where(p => p.ProductDetail.Where(d => d.CategoryDetail.CategoryId == id).Count() != 0);
+            throw new NotImplementedException();
         }
 
-        public IEnumerable<Product> GetProductsBySubCategory(int categoryId, int subcategoryid)
+        public IEnumerable<ProductDetail> GetProductsByCategoryDetailId(int categoryDetailId)
         {
-            return AllProducts.Where(p => p.ProductDetail.Where(d => d.CategoryDetail.CategoryId == categoryId &&  d.CategoryDetail.SubCategory.SubCategoryId == subcategoryid).Count() != 0);
+            throw new NotImplementedException();
         }
     }
 }

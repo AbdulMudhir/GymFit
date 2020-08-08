@@ -14,9 +14,9 @@ namespace GymFit.Models
 
         public IEnumerable<Product> ProductsForHomePage { get; }
 
-        public IEnumerable<Product> GetProductsByCategoryId(int id);
+        public IEnumerable<ProductDetail> GetProductsByCategoryId(int id);
 
-        public IEnumerable<Product> GetProductsBySubCategory(int categoryId, int subcategoryid);
+        public IEnumerable<ProductDetail> GetProductsByCategoryDetailId(int categoryDetailId);
 
     }
 }
