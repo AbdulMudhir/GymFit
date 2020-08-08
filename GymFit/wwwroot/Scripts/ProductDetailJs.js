@@ -62,11 +62,8 @@ function addToCart(event) {
     }
 
     const product = {
-        id: parseInt(productDetailId),
+        ProductDetailId: parseInt(productDetailId),
         productID: parseInt(productID),
-        name: productName,
-        size: sizeMenu,
-        price: price,
         flavour: flavourMenu,
         quantity: 1,
     }

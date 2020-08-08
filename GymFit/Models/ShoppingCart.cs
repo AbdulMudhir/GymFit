@@ -1,0 +1,100 @@
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
+namespace GymFit.Models
+{
+    public class ShoppingCart
+    {
+
+
+        private readonly MockProductRepository mockProductRepository 
+            = new MockProductRepository();
+
+
+        private readonly ISession _session;
+
+        public ShoppingCart(ISession session)
+        {
+            _session = session;
+        }
+
+
+
+        public List<ShoppingCartItem> _shoppingCart 
+        { 
+            get { return JsonSerializer.Deserialize<List<ShoppingCartItem>>(_session.GetString("cart")); 
+            } 
+            set { _session.SetString("cart", JsonSerializer.Serialize(value)); } 
+        } 
+
+        public void AddShoppingCartItem (ProductShoppingCartModel product)
+        {
+            var productFromDb = mockProductRepository.GetProductByID(product.ProductId);
+
+            List<ShoppingCartItem> shoppingCartList;
+
+            if (productFromDb != null)
+            {
+                var shoppingCartEnumerable = _shoppingCart.AsEnumerable();
+
+                var itemExist = shoppingCartEnumerable.FirstOrDefault
+                    (p => p.Product.ProductId == product.ProductId && p.Product.ProductDetailId == product.ProductDetailId);
+
+
+                if (itemExist != null)
+                {
+                    itemExist.Quantity++;
+
+                    _shoppingCart = (List<ShoppingCartItem>)shoppingCartEnumerable;
+                }
+                else
+                {
+                  
+
+                    productFromDb.ProductDetailId = product.ProductDetailId;
+
+                    ShoppingCartItem productToAdd = new ShoppingCartItem()
+                    { Product = product, Quantity = 1 };
+
+
+                    shoppingCartList = shoppingCartEnumerable.ToList();
+
+                     shoppingCartList.Add(productToAdd);
+
+                    _shoppingCart = shoppingCartList;
+
+                }
+
+
+            }
+
+
+
+        }
+
+
+
+        public static ShoppingCart createShoppingCart(IServiceProvider services)
+        {
+            var session = services.GetRequiredService<IHttpContextAccessor>()?
+                .HttpContext.Session;
+
+            string shoppingCart = session.GetString("cart");
+
+            if(shoppingCart == null)
+            {
+                session.SetString("cart", "[]");
+            }
+
+            return new ShoppingCart(session);
+        }
+
+    }
+}

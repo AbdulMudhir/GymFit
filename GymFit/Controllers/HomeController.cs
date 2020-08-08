@@ -1,5 +1,6 @@
 ﻿using GymFit.Models;
 using GymFit.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,11 @@ namespace GymFit.Controllers
             HomeViewModel homeViewModel = new HomeViewModel();
 
             homeViewModel.Products = _productRepository.ProductsForHomePage;
+
+           
+
+      
+
 
             return View(homeViewModel);
         }

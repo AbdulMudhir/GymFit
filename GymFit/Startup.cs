@@ -6,6 +6,8 @@ using GymFit.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -15,6 +17,14 @@ namespace GymFit
     {
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+
+        private readonly IConfiguration Configuration;
+        public Startup(IConfiguration configuration)
+        {
+
+            Configuration = configuration;
+        }
+
         public void ConfigureServices(IServiceCollection services)
         {
 
@@ -25,6 +35,21 @@ namespace GymFit
 
             services.AddScoped<ICategoryRepository, MockCategoryRepository>();
             services.AddScoped<IProductRepository, MockProductRepository>();
+            services.AddScoped<ShoppingCart>( sp => ShoppingCart.createShoppingCart(sp));
+
+            services.AddHttpContextAccessor();
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+
+            services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(
+
+                Configuration.GetConnectionString("DefaultConnection")
+
+
+              ));
+
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,11 +60,12 @@ namespace GymFit
                 app.UseDeveloperExceptionPage();
                 app.UseBrowserLink();
             }
-
+            app.UseSession();
+            app.UseStaticFiles();
             app.UseHttpsRedirection();
             app.UseRouting();
 
-            app.UseStaticFiles();
+          
 
             app.UseEndpoints(endpoints =>
             {

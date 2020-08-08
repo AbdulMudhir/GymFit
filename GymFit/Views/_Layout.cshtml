@@ -27,13 +27,13 @@
                 <div class="search-bar"> <input placeholder="Search entire store " type="text" /></div>
                 <div class="cart-container">
                     <a class="admin-portal" href="">Admin Portal</a>
-                    <div class="cart">
+                    <a asp-controller="cart" asp-action="index" asp- class="cart">
                         <div class="cart-img">
                             <span class="iconify cart-img" data-inline="false" data-icon="ant-design:shopping-cart-outlined" style="color: #ffffff; font-size: 26.630435943603516px;">
                             </span><div class="cart-total">0</div>
-                        </div> <p class="cart-price"><span class="price-divider">-</span><span id="currency">£</span> <p class="cart-total_price" style="font-weight: 700;">0</p> </p>
+                        </div> <p class="cart-price"><span class="price-divider">-</span><span id="currency">£</span> <p class="cart-total_price" style="font-weight: 700;">0</p> 
 
-                    </div>
+                    </a>
                 </div>
             </div>
             <span class="iconify humburger" data-inline="false" data-icon="cil:hamburger-menu" style="color: #ffffff; font-size: 35px;"></span>
