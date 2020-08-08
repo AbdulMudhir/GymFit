@@ -14,15 +14,13 @@ namespace GymFit.Models
     {
 
 
-        private readonly MockProductRepository mockProductRepository 
-            = new MockProductRepository();
-
-
+        private readonly DatabaseContext _databaseContext;
         private readonly ISession _session;
 
-        public ShoppingCart(ISession session)
+        public ShoppingCart(ISession session, DatabaseContext databaseContext)
         {
             _session = session;
+            _databaseContext = databaseContext;
         }
 
 
@@ -36,7 +34,7 @@ namespace GymFit.Models
 
         public void AddShoppingCartItem (ProductShoppingCartModel product)
         {
-            var productFromDb = mockProductRepository.GetProductByID(product.ProductId);
+            var productFromDb = _databaseContext.ProductDetails.FirstOrDefault(p => p.ProductDetailId == product.ProductDetailId);
 
             List<ShoppingCartItem> shoppingCartList;
 
@@ -45,7 +43,7 @@ namespace GymFit.Models
                 var shoppingCartEnumerable = _shoppingCart.AsEnumerable();
 
                 var itemExist = shoppingCartEnumerable.FirstOrDefault
-                    (p => p.Product.ProductId == product.ProductId && p.Product.ProductDetailId == product.ProductDetailId);
+                    (p => p.Product.ProductDetailId == product.ProductDetailId);
 
 
                 if (itemExist != null)
@@ -61,7 +59,7 @@ namespace GymFit.Models
                     productFromDb.ProductDetailId = product.ProductDetailId;
 
                     ShoppingCartItem productToAdd = new ShoppingCartItem()
-                    { Product = product, Quantity = 1 };
+                    { Product = productFromDb, Quantity = 1 };
 
 
                     shoppingCartList = shoppingCartEnumerable.ToList();
@@ -80,11 +78,22 @@ namespace GymFit.Models
         }
 
 
+        public decimal totalCost()
+        {
+            return _shoppingCart.AsEnumerable().Sum(p => p.Product.Price * p.Quantity);
+        }
+
+        public int totalCartItem()
+        {
+            return _shoppingCart.Count;
+        }
 
         public static ShoppingCart createShoppingCart(IServiceProvider services)
         {
             var session = services.GetRequiredService<IHttpContextAccessor>()?
                 .HttpContext.Session;
+
+            var context = services.GetService<DatabaseContext>();
 
             string shoppingCart = session.GetString("cart");
 
@@ -93,7 +102,7 @@ namespace GymFit.Models
                 session.SetString("cart", "[]");
             }
 
-            return new ShoppingCart(session);
+            return new ShoppingCart(session, context);
         }
 
     }

@@ -8,8 +8,6 @@ namespace GymFit.Models
     public class ProductShoppingCartModel
     {
 
-        public int ProductId { get; set; }
-
       
         public int ProductDetailId { get; set; }
 

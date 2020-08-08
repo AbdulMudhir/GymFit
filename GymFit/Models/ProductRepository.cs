@@ -30,7 +30,8 @@ namespace GymFit.Models
 
         public IEnumerable<ProductDetail> GetProductsByCategoryId(int id)
         {
-            return _databaseContext.ProductDetails.Where(p => p.CategoryDetail.CategoryId == id).Include(p => p.Product).Include(p => p.Images).AsEnumerable().GroupBy(p => p.ProductId).Select(p => p.First());
+            return _databaseContext.ProductDetails.Where(p => p.CategoryDetail.CategoryId == id).Include(p => p.Product).Include(p => p.Images)
+                .AsEnumerable().GroupBy(p => p.ProductId).Select(p => p.First());
         }
 
         public IEnumerable<ProductDetail> GetProductsByCategoryDetailId(int categoryDetailId)

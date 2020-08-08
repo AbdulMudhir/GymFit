@@ -8,7 +8,7 @@ namespace GymFit.Models
     public class ShoppingCartItem
     {
 
-        public ProductShoppingCartModel Product { get; set; }
+        public ProductDetail Product { get; set; }
 
         public int Quantity { get; set; }
 

@@ -34,5 +34,14 @@ namespace GymFit.Controllers
             return Json( new { success = "true"});
         }
 
+        public JsonResult CartInfo()
+        {
+
+            return Json(new { success = "true", 
+                totalCost = _shoppingCart.totalCost(),
+                total = _shoppingCart.totalCartItem()
+            });
+        }
+
     }
 }

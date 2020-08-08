@@ -328,7 +328,7 @@ namespace GymFit.Models
             modelBuilder.Entity<Image>().HasData(new Image
             {
                 ImageId = 4,
-                ProductDetailId = 5,
+                ProductDetailId = 3,
                 Url = "/productimages/bigwhey.png"
 
             });
@@ -336,7 +336,7 @@ namespace GymFit.Models
             modelBuilder.Entity<Image>().HasData(new Image
             {
                 ImageId = 5,
-                ProductDetailId = 3,
+                ProductDetailId = 5,
                 Url = "/productimages/whey.jpg"
             });
 

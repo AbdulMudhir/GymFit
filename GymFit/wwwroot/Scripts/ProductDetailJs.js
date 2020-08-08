@@ -30,44 +30,20 @@ backButton.addEventListener("click", (event) => {
 
 })
 
-
 const cartButton = document.querySelector(".add-to-cart-button");
 
-cartButton.addEventListener("click", addToCart);
+cartButton.addEventListener("click", (event) => {
 
-function addToCart(event) {
+    const selectMenu = document.querySelector(".prod-select");
 
-    const parentContainer = event.target.parentElement
-    const productID = parentContainer.attributes["id"].value;
-    const productName = parentContainer.querySelector(".product-name h1").textContent;
-    const sizeMenu = parentContainer.querySelector(".size-menu");
-    const flavourMenu = parentContainer.querySelector(".Flavour-menu").value;
-
-    const productDetailId = sizeMenu.value;
-
-  
-
-    let price = 0;
-
-   
-    const priceContainer = document.querySelector(".price-container");
-    
-    for (let i = 0; i  < priceContainer.children.length ; i++) {
-
-        let priceSelector = priceContainer.children[i];
-        if (window.getComputedStyle(priceSelector).display != "none")
-        {
-            price = parseFloat(priceSelector.querySelector(".price").textContent);
-        }
-    }
 
     const product = {
-        ProductDetailId: parseInt(productDetailId),
-        productID: parseInt(productID),
-        flavour: flavourMenu,
-        quantity: 1,
-    }
+        ProductDetailId: parseInt(selectMenu.value)
 
-    addProductToCart(product)
-   
+
+    }
+    addProductToCart(product);
 }
+  
+);
+

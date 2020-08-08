@@ -1,36 +1,42 @@
 ﻿
 function updateCartTotalPrice() {
 
-    const cartTotalPrice = document.querySelector(".cart-total_price");
+    const ajax = new XMLHttpRequest();
+
+    ajax.open("Get", "/Cart/CartInfo");
+    ajax.responseType = "json";
+
+    ajax.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
 
 
+    ajax.onload = function (e) {
 
-    const cartSession = JSON.parse(sessionStorage.getItem("cart"));
-    let totalPrice = 0;
-
-    console.log(cartSession)
-
-    for (let i = 0; i < cartSession.length; i++) {
+        if (this.status === 200) {
 
 
+            if (this.response.success === "true") {
 
-        totalPrice += cartSession[i].price * cartSession[i].quantity;
+                const cartPrice = document.querySelector(".cart-total_price");
+                const cartTotal = document.querySelector(".cart-total");
 
-        console
+                if (this.response.total >= 5) {
+                    cartTotal.textContent = "5+";
 
+                }
+                else {
+                    cartTotal.textContent = this.response.total;
+                } 
+                cartPrice.textContent = parseFloat(this.response.totalCost).toFixed(2);
+            }
 
+        }
     }
-    cartTotalPrice.textContent = totalPrice.toFixed(2);
 
 
-    if (cartSession.length >= 5) {
-        document.querySelector(".cart-total").textContent = "5+";
-    }
-    else {
-        document.querySelector(".cart-total").textContent = cartSession.length;
-    }
-
+    ajax.send()
 }
+
+
 
 function addProductToCart(product) {
 
@@ -51,69 +57,23 @@ function addProductToCart(product) {
 
     ajax.onload = function (e) {
 
-        console.log(this.response)
+        if (this.status === 200) {
+
+
+            if (this.response.success === "true") {
+                updateCartTotalPrice()
+            }
+
+        }
+        else {
+
+            alert("issue with server cart will not be avaible at the moment please try again next minute")
+        }
 
     }
 
 
     ajax.send(JSON.stringify(product))
 
-    //if (cartSession == "") {
-
-
-        
-
-    //    //cartTotal.textContent = currentCartTotal + 1;
-
-
-    //    const cart = `[${JSON.stringify(product)}]`;
-
-    //    sessionStorage.setItem("cart", cart);
-
-
-    //}
-    //else {
-
-    //    const cart = JSON.parse(cartSession);
-
-    //    let found = false;
-
-    //    for (let i = 0; i < cart.length; i++) {
-
-
-
-    //        if (cart[i].id === parseInt(product.id) &&
-    //            cart[i].productID === parseInt(product.productID)) {
-    //            found = true;
-    //            cart[i].quantity += 1;
-    //            break;
-    //        }
-    //        else {
-    //            found = false
-    //        }
-
-
-
-    //    }
-
-    //    if (!found) {
-          
-
-    //        cart.push(product);
-
-           
-
-
-    //    }
-
-
-
-
-    //    sessionStorage.setItem("cart", JSON.stringify(cart))
-
-     
-
-
-    //}
-    //updateCartTotalPrice()
+    
 }

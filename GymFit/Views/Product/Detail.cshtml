@@ -51,11 +51,14 @@
 
             <div class="size-container">
                 <label>Size</label>
-                <select class="size-menu prod-select" name="cars" id="cars">
-                    <option  value="1">Volvo</option>
-                    <option value="2">Saab</option>
+                <select class="size-menu prod-select">
+                    @foreach (var productDetails in Model.ProductDetail)
+                    {
 
-                </select>
+                        <option value="@productDetails.ProductDetailId">@productDetails.Size</option>
+
+                    }
+                    </select>
             </div>
 
             <div class="flavour-container">
@@ -108,5 +111,5 @@
 
 
 </div>
-<script src="~/Scripts/sharedCartScript.js"></script>
+
 <script src="~/Scripts/ProductDetailJs.js"></script>

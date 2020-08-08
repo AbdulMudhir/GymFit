@@ -1,40 +1,22 @@
 ﻿
 
-const addToCartButtons = document.querySelectorAll(".card-cart-button");
+const cardCartButtons = document.querySelectorAll(".card-cart-button");
 
 
-for (let i = 0; i < addToCartButtons.length; i++) {
+for (let i = 0; i < cardCartButtons.length; i++) {
+
+    cardCartButtons[i].addEventListener("click", (event) => {
+
+        const productDetailId = event.target.parentElement.querySelector(".productDetailId").value;
+
+        const product = {
+            ProductDetailId: parseInt(productDetailId)
 
 
-    addToCartButtons[i].addEventListener("click", addToCart)
+        }
+        addProductToCart(product);
+
+    })
 }
 
 
-function addToCart(event) {
-
-    const parentContainer = event.target.parentElement
-    const productID = parentContainer.attributes["id"].value;
-
-    const sizeMenu = parentContainer.querySelector(".size-menu");
-
-    const productDetailId = parentContainer.querySelector(".productDetailId").value;
-
-
-    let price = parseFloat(parentContainer.querySelector(".price").textContent).toFixed(2);
-
-
-
-
-
-    const product = {
-        id: parseInt(productDetailId),
-        productID: parseInt(productID),
-        size: sizeMenu,
-        price: price,
-        quantity: 1,
-    }
-
-
-    addProductToCart(product)
-    updateCartTotalPrice()
-}

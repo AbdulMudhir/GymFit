@@ -12,5 +12,7 @@ namespace GymFit.ViewModels
        public  IEnumerable<ProductDetail> Products { get; set; }
 
         public Category Category { get; set; }
+
+
     }
 }
