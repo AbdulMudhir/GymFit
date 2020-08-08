@@ -244,6 +244,8 @@ namespace GymFit.Models
                 Price = 40,
                 PreviousPrice = 84,
                 ProductId = 3,
+                Size = "2.5kg",
+                Flavour = "Extreme Chocolate",
                 ProductDetailId = 2,
                 CategoryDetailId = 7,
           
@@ -257,6 +259,8 @@ namespace GymFit.Models
                 Price = 20,
                 PreviousPrice = 324,
                 ProductId = 3,
+                Size = "1.5kg",
+                Flavour = "Extreme Chocolate",
                 ProductDetailId = 3,
                 CategoryDetailId = 7,
 
@@ -270,6 +274,8 @@ namespace GymFit.Models
                 Price = 40,
                 PreviousPrice = 84,
                 ProductId = 2,
+                Size= "2.5kg",
+                Flavour = "Vanilla Chocolate",
                 ProductDetailId = 4,
                 CategoryDetailId = 7,
 
@@ -283,6 +289,8 @@ namespace GymFit.Models
                 Price = 20,
                 PreviousPrice = 324,
                 ProductId = 2,
+                Size= "1.5kg",
+                Flavour = "Vanilla Chocolate",
                 ProductDetailId = 5,
                 CategoryDetailId = 7,
 

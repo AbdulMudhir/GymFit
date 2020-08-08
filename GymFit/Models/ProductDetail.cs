@@ -15,7 +15,7 @@ namespace GymFit.Models
 
         public int ProductId { get; set; }
 
-        public int Size { get; set; }
+        public string Size { get; set; }
 
         public string Flavour { get; set; }
 

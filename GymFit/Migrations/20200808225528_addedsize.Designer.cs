@@ -3,14 +3,16 @@ using GymFit.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GymFit.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20200808225528_addedsize")]
+    partial class addedsize
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -321,7 +323,6 @@ namespace GymFit.Migrations
                         {
                             ProductDetailId = 2,
                             CategoryDetailId = 7,
-                            Flavour = "Extreme Chocolate",
                             PreviousPrice = 84m,
                             Price = 40m,
                             ProductId = 3,
@@ -333,7 +334,6 @@ namespace GymFit.Migrations
                         {
                             ProductDetailId = 3,
                             CategoryDetailId = 7,
-                            Flavour = "Extreme Chocolate",
                             PreviousPrice = 324m,
                             Price = 20m,
                             ProductId = 3,
@@ -345,7 +345,6 @@ namespace GymFit.Migrations
                         {
                             ProductDetailId = 4,
                             CategoryDetailId = 7,
-                            Flavour = "Vanilla Chocolate",
                             PreviousPrice = 84m,
                             Price = 40m,
                             ProductId = 2,
@@ -357,7 +356,6 @@ namespace GymFit.Migrations
                         {
                             ProductDetailId = 5,
                             CategoryDetailId = 7,
-                            Flavour = "Vanilla Chocolate",
                             PreviousPrice = 324m,
                             Price = 20m,
                             ProductId = 2,

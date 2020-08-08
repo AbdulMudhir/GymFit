@@ -61,17 +61,19 @@
                     </select>
             </div>
 
+            @if (Model.ProductDetail.FirstOrDefault().CategoryDetail.CategoryId == 4)
+            {
             <div class="flavour-container">
                 <label>Flavour</label>
-                <select class="Flavour-menu prod-select" name="cars" id="cars">
-                    <option id="1" value="volvo">Extreme Chocolate</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
-                </select>
+             
+                <div class="Flavour-menu prod-select">
+                    <p id="1" >Extreme Chocolate</p>
+                    
+                </div>
 
 
             </div>
+            }
 
         </div>
 
