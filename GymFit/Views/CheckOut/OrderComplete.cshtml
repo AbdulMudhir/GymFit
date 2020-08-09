@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "OrderComplete";
+    Layout = "~/Views/_Layout.cshtml";
+}
+    <link href="~/Contents/ordercomplete.css" rel="stylesheet" />
+
+    <div class="order-complete-container">
+        <h1>Your order was successful!</h1>
+        <h4>
+            Thanks for placing your order. We'll ship your goods as soon as possible.
+        </h4>
+
+        <a asp-controller="home" asp-action="index">Back to shop</a>
+
+    </div>

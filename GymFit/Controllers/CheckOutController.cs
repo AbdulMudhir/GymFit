@@ -62,14 +62,21 @@ namespace GymFit.Controllers
                 }
 
                 _orderRepository.AddOrder(newOrder);
+                _shoppingCart.ClearShoppingCart();
 
-                return View();
+                return RedirectToAction("OrderComplete");
             }
 
 
             form._shoppingCart = _shoppingCart._shoppingCart;
 
             return View(form);
+        }
+
+        public IActionResult OrderComplete()
+        {
+
+            return View();
         }
     }
 }

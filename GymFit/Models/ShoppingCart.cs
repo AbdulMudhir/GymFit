@@ -130,6 +130,16 @@ namespace GymFit.Models
 
         }
 
+        public void ClearShoppingCart()
+        {
+
+
+            _session.SetString("cart", "[]");
+
+
+
+        }
+
         public decimal totalCost()
         {
             return _shoppingCart.AsEnumerable().Sum(p => p.Product.Price * p.Quantity);
