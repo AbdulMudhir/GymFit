@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/_Layout.cshtml";
+}
+<link href="~/Contents/AdminStylesheet.css" rel="stylesheet" />
+
+
+@model AdminViewModel
+<div class="admin-home">
+
+
+
+
+    <div class="admin-title-container">
+        <h1>Manage Product</h1>
+        <div class="add">
+            <a asp-controller="Product" asp-action="Add" class="add-product">Add Product</a>
+        </div>
+    </div>
+
+    <div class="admin-grid-container">
+
+        <table class="admin-table" style="width:100%">
+            <tr>
+                <th class="col-name col">Name</th>
+                <th class="col-category col">Category</th>
+                <th class="col-img col">Image</th>
+                <th class="col-price col">Price</th>
+                <th class="col-Edit col">Edit</th>
+            </tr>
+
+
+
+            @if (Model.AllProducts != null)
+            {
+
+                @foreach (var Item in Model.AllProducts)
+                {
+                    <tr class="row" id="@Item.ProductId">
+
+                        <td><a asp-controller="Product" asp-action="Detail" asp-route-id="@Item.ProductId">@Item.Name</a></td>
+                        <td><a asp-controller="Catalogue" asp-action="category" asp-route-categoryId="@Item.ProductDetail.First().CategoryDetail.CategoryId"> @Item.ProductDetail.First().CategoryDetail.Category.Name </a></td>
+                        <td><div class="admin-img-check"><img src="@Url.Content(Item.ProductDetail.First().Images.First().Url)" /></div></td>
+                        <td class="current-price-admin">£@Item.ProductDetail.First().Price</td>
+                        <td class="admin-edit">
+                            <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="color: #ffffff; font-size: 16px;"></span>
+                            <span class="iconify" data-inline="false" data-icon="emojione-monotone:heavy-multiplication-x" style="color: #ea1f12; font-size: 16px;"></span>
+
+                        </td>
+                    </tr>
+                }
+
+            }
+
+
+        </table>
+
+
+    </div>
+
+
+
+
+
+</div>

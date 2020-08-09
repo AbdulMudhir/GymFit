@@ -18,5 +18,6 @@ namespace GymFit.Models
 
         public IEnumerable<ProductDetail> GetProductsByCategoryDetailId(int categoryDetailId);
 
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using GymFit.Models;
+using GymFit.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,28 @@ namespace GymFit.Controllers
 
 
             return NotFound() ;
+        }
+
+        public IActionResult Add()
+        {
+            var form = new AddProductFormVIewModel();
+
+
+            return View(form);
+        }
+        [HttpPost]
+        public IActionResult Add( AddProductFormVIewModel form)
+        {
+            foreach(var product in form.ProductDetails)
+            {
+                if(product.PreviousPrice == null)
+                {
+                    product.PreviousPrice = product.Price;
+                }
+
+            }
+
+            return View(form);
         }
     }
 }

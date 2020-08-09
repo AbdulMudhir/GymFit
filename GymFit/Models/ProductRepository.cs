@@ -17,10 +17,13 @@ namespace GymFit.Models
 
 
 
-        public IEnumerable<Product> AllProducts => _databaseContext.Products.Include(p => p.ProductDetail).ThenInclude( p => p.CategoryDetail)
+        public IEnumerable<Product> AllProducts => _databaseContext.Products.Where(p => !p.IsFrontPageProduct).Include(p => p.ProductDetail).
+            ThenInclude( p => p.CategoryDetail).ThenInclude(p=> p.Category)
             .Include(p => p.ProductDetail).ThenInclude(p => p.Images);
 
-        public IEnumerable<Product> ProductsForHomePage => AllProducts.Where(p => p.IsFrontPageProduct);
+        public IEnumerable<Product> ProductsForHomePage => _databaseContext.Products.Where(p => p.IsFrontPageProduct).Include(p => p.ProductDetail).
+            ThenInclude(p => p.CategoryDetail).ThenInclude(p => p.Category)
+            .Include(p => p.ProductDetail).ThenInclude(p => p.Images);
         
 
         public Product GetProductByID(int id)
