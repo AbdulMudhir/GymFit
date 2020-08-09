@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Microsoft.EntityFrameworkCore;
 
 namespace GymFit.Models
 {
@@ -29,12 +30,17 @@ namespace GymFit.Models
         { 
             get { return JsonSerializer.Deserialize<List<ShoppingCartItem>>(_session.GetString("cart")); 
             } 
-            set { _session.SetString("cart", JsonSerializer.Serialize(value)); } 
+            set {
+
+
+                _session.SetString("cart", JsonSerializer.Serialize(value)); 
+            
+            } 
         } 
 
         public void AddShoppingCartItem (ProductShoppingCartModel product)
         {
-            var productFromDb = _databaseContext.ProductDetails.FirstOrDefault(p => p.ProductDetailId == product.ProductDetailId);
+            var productFromDb = _databaseContext.ProductDetails.Where(p => p.ProductDetailId == product.ProductDetailId).Include(p => p.Product).First();
 
             List<ShoppingCartItem> shoppingCartList;
 

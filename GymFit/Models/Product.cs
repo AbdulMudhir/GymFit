@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace GymFit.Models
@@ -25,6 +26,7 @@ namespace GymFit.Models
 
         public int ProductDetailId { get; set; }
 
+        [JsonIgnore]
         public IEnumerable<ProductDetail> ProductDetail { get; set; }
 
         public bool IsFrontPageProduct { get; set; }
