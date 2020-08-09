@@ -43,9 +43,31 @@ namespace GymFit.Controllers
 
             if(ModelState.IsValid)
             {
+                var newOrder = new Order()
+                {
+                    Name =form.Name,
+                    AddressLine1 = form.AddressLine1,
+                    AddressLine2 = form.AddressLine2,
+                    City = form.City,
+                    Postcode = form.Postcode,
+                    Country = form.Country
+                };
+
+                foreach(var item in _shoppingCart._shoppingCart)
+                {
+                    newOrder.orderDetails.Add(
+                        new OrderDetails { Amount = item.Quantity, 
+                            ProductDetailId = item.Product.ProductDetailId }
+                        );
+                }
+
+                _orderRepository.AddOrder(newOrder);
+
                 return View();
             }
 
+
+            form._shoppingCart = _shoppingCart._shoppingCart;
 
             return View(form);
         }

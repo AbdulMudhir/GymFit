@@ -14,14 +14,15 @@ namespace GymFit.ViewModels
         public string Name { get; set; }
 
         [DisplayName("Line 1")]
-        [Required]
+        [Required(ErrorMessage = "The Address field is required")]
         public string AddressLine1 { get; set; }
 
         [DisplayName("Line 2")]
-        [Required]
         public string AddressLine2 { get; set; }
         [Required]
         public string City { get; set; }
+
+        [DisplayName("Post Code")]
         [Required]
         public string Postcode { get; set; }
         [Required]

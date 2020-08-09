@@ -19,7 +19,9 @@ namespace GymFit.Models
 
         public void AddOrder(Order order)
         {
-            throw new NotImplementedException();
+
+            _databaseContext.Orders.Add(order);
+            _databaseContext.SaveChanges();
         }
     }
 }

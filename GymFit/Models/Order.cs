@@ -22,7 +22,7 @@ namespace GymFit.Models
 
         public string Country { get; set; }
 
-        public Collection<OrderDetails> orderDetails { get; set; }
+        public Collection<OrderDetails> orderDetails { get; set; } = new Collection<OrderDetails>();
 
     }
 }
