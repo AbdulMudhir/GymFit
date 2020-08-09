@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GymFit.Models;
+using GymFit.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,9 +21,11 @@ namespace GymFit.Controllers
 
         public IActionResult Index()
         {
-           
+         
 
-            return View();
+            var shoppingCartViewModel = new ShoppingCartViewModel { shoppingCartList = _shoppingCart._shoppingCart };
+
+            return View(shoppingCartViewModel);
         }
 
         [HttpPost]
@@ -41,6 +44,15 @@ namespace GymFit.Controllers
                 totalCost = _shoppingCart.totalCost(),
                 total = _shoppingCart.totalCartItem()
             });
+        }
+
+        [HttpPost]
+        public IActionResult amendQuantityCart([FromBody] ProductShoppingCartModel product)
+        {
+
+            _shoppingCart.AmendShoppingCartQuantity(product.ProductDetailId, product.Amount);
+
+            return Json(new { success = "true" });
         }
 
     }

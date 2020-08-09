@@ -13,5 +13,7 @@ namespace GymFit.Models
 
         public ProductDetail ProductDetail { get; set; }
 
+        public int Amount { get; set; }
+
     }
 }

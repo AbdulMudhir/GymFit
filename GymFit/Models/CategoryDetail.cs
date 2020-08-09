@@ -12,6 +12,7 @@ namespace GymFit.Models
 
         public int CategoryId { get; set; }
 
+        public Category Category { get; set; }
         public SubCategory SubCategory { get; set; }
 
         public int SubCategoryId { get; set; }

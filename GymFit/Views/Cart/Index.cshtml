@@ -4,5 +4,59 @@
     Layout = "~/Views/_Layout.cshtml";
 }
 
+@model ShoppingCartViewModel
+
+<link href="~/Contents/CartStylesheet.css" rel="stylesheet" />
+<div class="cart-home">
 
 
+
+
+    <div class="cart-title-container">
+        <h1>Cart</h1>
+    </div>
+
+    <div class="cart-grid-container">
+
+        <table class="cart-table" style="width:100%">
+            <tr>
+                <th class="col-quantity col">Quantity</th>
+                <th class="col-name col">Name</th>
+                <th class="col-category col">Category</th>
+                <th class="col-size col">Size</th>
+                <th class="col-img col">Image</th>
+                <th class="col-price col">Price</th>
+                <th class="col-totalPrice col">Total Price</th>
+            </tr>
+
+
+
+            @if (Model.shoppingCartList != null)
+            {
+
+                @foreach (var cartItem in Model.shoppingCartList)
+                {
+                    <tr class="row" id="@cartItem.Product.ProductDetailId">
+                        <td><input required class="quantityInput" type="number" min="0" max="@cartItem.Product.StockAmount" value="@cartItem.Quantity" /> </td>
+                        <td><a asp-controller="Product" asp-action="Detail" asp-route-id="@cartItem.Product.ProductId">@cartItem.Product.Product.Name</a></td>
+                        <td><a asp-controller="Catalogue" asp-action="category" asp-route-categoryId="@cartItem.Product.CategoryDetail.CategoryId"> @cartItem.Product.CategoryDetail.Category.Name </a></td>
+                        <td>@cartItem.Product.Size</td>
+                        <td><div class="cart-img-check"><img src="@Url.Content(cartItem.Product.Images.First().Url)" /></div></td>
+                        <td class="current-price-cart">£@cartItem.Product.Price</td>
+                        <td class="total-price-cart">£@( cartItem.Product.Price * cartItem.Quantity )</td>
+                    </tr>
+                }
+
+            }
+
+        </table>
+
+
+    </div>
+
+
+
+
+
+</div>
+<script src="~/Scripts/shoppingcartscript.js"></script>

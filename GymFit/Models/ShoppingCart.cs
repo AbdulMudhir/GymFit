@@ -40,7 +40,9 @@ namespace GymFit.Models
 
         public void AddShoppingCartItem (ProductShoppingCartModel product)
         {
-            var productFromDb = _databaseContext.ProductDetails.Where(p => p.ProductDetailId == product.ProductDetailId).Include(p => p.Product).First();
+            var productFromDb = _databaseContext.ProductDetails.Where
+                (p => p.ProductDetailId == product.ProductDetailId)
+                .Include(p => p.Images).Include(p => p.Product).Include(p => p.CategoryDetail.Category).First();
 
             List<ShoppingCartItem> shoppingCartList;
 
@@ -83,6 +85,26 @@ namespace GymFit.Models
 
         }
 
+
+        public void AmendShoppingCartQuantity(int productDetailId, int amount)
+        {
+            
+
+
+ 
+                var shoppingCartEnumerable = _shoppingCart.AsEnumerable();
+                var itemExist = shoppingCartEnumerable.FirstOrDefault
+                      (p => p.Product.ProductDetailId == productDetailId);
+
+
+            if (itemExist != null)
+                {
+                itemExist.Quantity = amount;
+
+                _shoppingCart = shoppingCartEnumerable.ToList(); 
+                }
+           
+        }
 
         public decimal totalCost()
         {

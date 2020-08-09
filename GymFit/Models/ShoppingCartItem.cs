@@ -12,5 +12,7 @@ namespace GymFit.Models
 
         public int Quantity { get; set; }
 
+      
+
     }
 }
