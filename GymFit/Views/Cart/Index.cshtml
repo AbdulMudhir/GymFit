@@ -36,25 +36,34 @@
 
                 @foreach (var cartItem in Model.shoppingCartList)
                 {
-        <tr class="row" id="@cartItem.Product.ProductDetailId">
-            
-            <td><input required class="quantityInput" type="number" min="0" max="@cartItem.Product.StockAmount" value="@cartItem.Quantity" /> </td>
-            <td><a asp-controller="Product" asp-action="Detail" asp-route-id="@cartItem.Product.ProductId">@cartItem.Product.Product.Name</a></td>
-            <td><a asp-controller="Catalogue" asp-action="category" asp-route-categoryId="@cartItem.Product.CategoryDetail.CategoryId"> @cartItem.Product.CategoryDetail.Category.Name </a></td>
-            <td>@cartItem.Product.Size</td>
-            <td><div class="cart-img-check"><img src="@Url.Content(cartItem.Product.Images.First().Url)" /></div></td>
-            <td class="current-price-cart">£@cartItem.Product.Price</td>
-            <td class="total-price-cart">£@( cartItem.Product.Price * cartItem.Quantity )</td>
-            <td class="total-price-cart"><p class="remove-cart-item">x</p></td>
-        </tr>
+                    <tr class="row" id="@cartItem.Product.ProductDetailId">
+
+                        <td><input required class="quantityInput" type="number" min="0" max="@cartItem.Product.StockAmount" value="@cartItem.Quantity" /> </td>
+                        <td><a asp-controller="Product" asp-action="Detail" asp-route-id="@cartItem.Product.ProductId">@cartItem.Product.Product.Name</a></td>
+                        <td><a asp-controller="Catalogue" asp-action="category" asp-route-categoryId="@cartItem.Product.CategoryDetail.CategoryId"> @cartItem.Product.CategoryDetail.Category.Name </a></td>
+                        <td>@cartItem.Product.Size</td>
+                        <td><div class="cart-img-check"><img src="@Url.Content(cartItem.Product.Images.First().Url)" /></div></td>
+                        <td class="current-price-cart">£@cartItem.Product.Price</td>
+                        <td class="total-price-cart">£@( cartItem.Product.Price * cartItem.Quantity )</td>
+                        <td class="total-price-cart"><p class="remove-cart-item">x</p></td>
+                    </tr>
                 }
 
             }
 
+        
         </table>
 
+        <div class="col"></div>
+             
 
-    </div>
+        @if (Model.shoppingCartList.Count != 0)
+        {
+
+            <div class="checkoutbutton-container"><a asp-controller="CheckOut" asp-action="index" class="checkout-button">Checkout</a></div>
+        }
+
+        </div>
 
 
 

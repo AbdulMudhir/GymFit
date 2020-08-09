@@ -40,6 +40,7 @@ namespace GymFit
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
+                 services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<ShoppingCart>( sp => ShoppingCart.createShoppingCart(sp));
 
             services.AddHttpContextAccessor();

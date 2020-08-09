@@ -78,6 +78,14 @@ function removeItem(event) {
             if (this.response.success === "true") {
                 parentContainer.remove();
 
+                const totalRowsLeft = document.querySelectorAll(".row").length;
+
+                if (totalRowsLeft == 0) {
+
+                    document.querySelector(".checkoutbutton-container").style.display = "none";
+                }
+
+
                 updateCartTotalPrice()
             }
 

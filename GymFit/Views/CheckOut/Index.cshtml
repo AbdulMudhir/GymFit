@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+@model CheckoutViewFormModel
+
+<link href="~/Contents/checkoutstylesheet.css" rel="stylesheet" />
+<div class="checkout-home">
+
+
+
+
+    <div class="back-container">
+        <span class="iconify" data-inline="false" data-icon="ic:sharp-arrow-back-ios"></span>
+        <h1 class="back-container-title">  Back to previous</h1>
+    </div>
+
+
+    <div class="shiptolabel"> Ship to </div>
+
+
+
+    <div class="form-container">
+
+        <form method="post" asp-action="index">
+
+
+            <div class="form-group" >
+                <div class="requiredStart">*</div>
+                <label style="margin-top:0;" asp-for="@Model.Name"></label>
+                <input asp-for="@Model.Name" />
+                <span asp-validation-for="@Model.Name"></span>
+            </div>
+
+            <div style="font-weight:700;" class="address-label">Address</div>
+
+            <div class="form-group">
+                <div class="requiredStart">*</div>
+                <label asp-for="@Model.AddressLine1"></label>
+                <input asp-for="@Model.AddressLine1" />
+                <span asp-validation-for="@Model.AddressLine1"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.AddressLine2"></label>
+                <input asp-for="@Model.AddressLine2" />
+                <span asp-validation-for="@Model.AddressLine2"></span>
+            </div>
+            <div class="form-group">
+                <div class="requiredStart">*</div>
+                <label asp-for="@Model.City"></label>
+                <input asp-for="@Model.City" />
+                <span asp-validation-for="@Model.City"></span>
+            </div>
+            <div class="form-group">
+                <div class="requiredStart">*</div>
+                <label asp-for="@Model.Postcode"></label>
+                <input asp-for="@Model.Postcode" />
+                <span asp-validation-for="@Model.Postcode"></span>
+            </div>
+            <div class="form-group">
+                <div class="requiredStart">*</div>
+                <label asp-for="@Model.Country"></label>
+                <input asp-for="@Model.Country" />
+                <span asp-validation-for="@Model.Country"></span>
+            </div>
+
+
+            <button class="complete-order" type="submit">Complete Order</button>
+
+        </form>
+
+
+
+    </div>
+    <div class="your-order">
+        <label class="urorderlabel">Your Order</label>
+
+        <div class="order">
+            @foreach (var item in Model._shoppingCart)
+            {
+                <span class="quantity grey">@item.Quantity</span>
+                <div class="amount grey">x</div>
+                <p class="name grey">@item.Product.Product.Name</p>
+                <span class="total-cost">£@(item.Quantity * item.Product.Price)</span>
+            }
+            <div class="divider"></div>
+            <label class="totalPurchaseLabel grey">Total Purchases</label>
+            <p style="font-weight:700" class="tp">£@(Model._shoppingCart.AsEnumerable().Sum(p => p.Product.Price * p.Quantity))</p>
+
+            <label class="totalPurchaseLabel grey">
+                Estimated Tax
+            </label>
+            <p class="tp" style="font-weight:700">£0</p>
+            <div class="divider"></div>
+
+            <label class="totalPurchaseLabel grey t">Total</label>
+            <p class="tp totalOverall" style="font-weight:700">£@(Model._shoppingCart.AsEnumerable().Sum(p => p.Product.Price * p.Quantity))</p>
+        </div>
+
+
+
+
+
+
+    </div>
+
+</div>
+<script src="~/Scripts/checkoutscript.js"></script>
