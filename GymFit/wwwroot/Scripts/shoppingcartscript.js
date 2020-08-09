@@ -1,8 +1,23 @@
 ﻿
 
 const quantityInput = document.querySelectorAll(".quantityInput");
+const removeButton = document.querySelectorAll(".remove-cart-item");
+
 
 for (let i = 0; i < quantityInput.length; i++) {
+
+
+    removeButton[i].addEventListener("click", (event) => {
+
+        const parentContainer = event.target.parentElement.parentElement;
+
+        removeItem(event);
+
+        console.log(parentContainer)
+
+
+    })
+
 
     quantityInput[i].addEventListener("focusout", (event) =>{
 
@@ -33,6 +48,52 @@ for (let i = 0; i < quantityInput.length; i++) {
 
     });
 }
+
+
+
+
+function removeItem(event) {
+
+    const parentContainer = event.target.parentElement.parentElement;
+    const productDetailId = parentContainer.attributes["id"].value;
+
+
+    const ajax = new XMLHttpRequest();
+
+    ajax.open("POST", "/Cart/removeCartItem");
+    ajax.responseType = "json";
+
+    ajax.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
+
+    const product = {
+        ProductDetailId: productDetailId,
+    }
+
+
+    ajax.onload = function (e) {
+
+        if (this.status === 200) {
+
+
+            if (this.response.success === "true") {
+                parentContainer.remove();
+
+                updateCartTotalPrice()
+            }
+
+        }
+        else {
+
+            alert("issue with server cart will not be avaible at the moment please try again next minute")
+        }
+
+    }
+
+
+    ajax.send(JSON.stringify(product))
+
+}
+
 
 
 function updateQuantity(event) {

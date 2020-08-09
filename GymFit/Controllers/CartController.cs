@@ -55,5 +55,14 @@ namespace GymFit.Controllers
             return Json(new { success = "true" });
         }
 
+        [HttpPost]
+        public IActionResult removeCartItem([FromBody] ProductShoppingCartModel product)
+        {
+
+            _shoppingCart.RemoveShoppingCartItem(product.ProductDetailId);
+
+            return Json(new { success = "true" });
+        }
+
     }
 }

@@ -106,6 +106,30 @@ namespace GymFit.Models
            
         }
 
+        public void RemoveShoppingCartItem(int productDetailId)
+        {
+
+
+
+
+            var shoppingCartEnumerable = _shoppingCart.AsEnumerable();
+
+            var itemExist = shoppingCartEnumerable.FirstOrDefault
+                  (p => p.Product.ProductDetailId == productDetailId);
+
+
+            if (itemExist != null)
+            {
+
+                var shoppingCartList = shoppingCartEnumerable.ToList();
+
+                shoppingCartList.Remove(itemExist);
+
+                _shoppingCart = shoppingCartList;
+            }
+
+        }
+
         public decimal totalCost()
         {
             return _shoppingCart.AsEnumerable().Sum(p => p.Product.Price * p.Quantity);
