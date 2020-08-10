@@ -49,15 +49,7 @@
         grid-column-gap: 3.5em;
     }
 
-    .side-options {
-        display:inline-block;
-        grid-area: aside;
-        margin-top: 2em;
-        width: 251px;
-        height:250px;
-        background: #252424;
-        padding: 2.6875em 1.5em;
-    }
+    
 }
 .price-option{
     margin-top:1.1em;
@@ -147,6 +139,7 @@
 }
 .product-img img{
     width:100%;
+    height:200px;
     object-fit:contain;
 }
 

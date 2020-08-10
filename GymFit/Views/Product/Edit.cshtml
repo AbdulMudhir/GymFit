@@ -1,0 +1,223 @@
+﻿
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+@model AddProductFormVIewModel
+
+<link href="~/Contents/Add Product.css" rel="stylesheet" />
+
+<form class="checkout-home" method="post" asp-action="Edit" enctype="multipart/form-data">
+
+
+
+
+    <div class="back-container">
+        <span class="iconify" data-inline="false" data-icon="ic:sharp-arrow-back-ios"></span>
+        <h1 class="back-container-title">  Back to previous</h1>
+    </div>
+
+
+
+
+
+    <div class="form-container">
+        <div class="shiptolabel"> Product Basic Info </div>
+
+
+        <input type="hidden" asp-for="@Model.ProductId" />
+
+        <div class="form-group">
+            <div class="requiredStart">*</div>
+            <label style="margin-top:0;" asp-for="@Model.Name"></label>
+            <input asp-for="@Model.Name" />
+            <span asp-validation-for="@Model.Name"></span>
+        </div>
+
+
+        <div class="form-group">
+            <div class="requiredStart">*</div>
+            <label asp-for="@Model.Description"></label>
+            <input asp-for="@Model.Description" />
+            <span asp-validation-for="@Model.Description"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="@Model.Ingredient"></label>
+            <input asp-for="@Model.Ingredient" />
+            <span asp-validation-for="@Model.Ingredient"></span>
+        </div>
+        <div class="form-group">
+            <div class="requiredStart">*</div>
+            <label asp-for="@Model.Brand"></label>
+            <input asp-for="@Model.Brand" />
+            <span asp-validation-for="@Model.Brand"></span>
+        </div>
+        <div class="form-group">
+            <div class="requiredStart">*</div>
+            <label asp-for="@Model.Safety"></label>
+            <input asp-for="@Model.Safety" />
+            <span asp-validation-for="@Model.Safety"></span>
+        </div>
+
+
+        <div class="secondary-form-container">
+
+            @if (Model.ProductDetails != null)
+            {
+
+                @for (var i = 0; i < Model.ProductDetails.Count; i++)
+                {
+                    <div class="additionalInfo-container">
+                        <div class="form-group">
+                            <div class="requiredStart">*</div>
+                            <label asp-for="ProductDetails[i].Price"></label>
+                            <input asp-for="ProductDetails[i].Price" />
+                            <span asp-validation-for="ProductDetails[i].Price"></span>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label asp-for="ProductDetails[i].PreviousPrice"></label>
+                            <input asp-for="ProductDetails[i].PreviousPrice" />
+                            <span asp-validation-for="ProductDetails[i].PreviousPrice"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="requiredStart">*</div>
+                            <label asp-for="ProductDetails[i].Size"></label>
+                            <input asp-for="ProductDetails[i].Size" />
+                            <span asp-validation-for="ProductDetails[i].Size"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="ProductDetails[i].Flavour"></label>
+                            <input asp-for="ProductDetails[i].Flavour" />
+                            <span asp-validation-for="ProductDetails[i].Flavour"></span>
+                        </div>
+                        <div class="form-group img-formgroup">
+                            <div class="requiredStart imgstar">*</div>
+                            <label asp-for="ProductDetails[i].Images"></label>
+                            <div class="img-section">
+                                <div class="img-container"><img src="@Url.Content(Model.ProductDetails[i].ImageUrl)"/></div>
+
+                                <input class="img-input" asp-for="ProductDetails[i].Images" />
+                            </div>
+                            <span asp-validation-for="ProductDetails[i].Images"></span>
+                        </div>
+
+                        <div class="form-group img-formgroup">
+                            <div class="requiredStart ">*</div>
+                            <label asp-for="ProductDetails[i].CategoryDetailId"></label>
+                            <select class="categoryOptions" asp-for="ProductDetails[i].CategoryDetailId">
+
+                                @foreach (var item in Model.CategoriesDetail)
+                                {
+                                    <option value="@item.Value">@item.Text</option>
+
+                                }
+
+
+                            </select>
+                            <span asp-validation-for="ProductDetails[i].CategoryDetailId"></span>
+                        </div>
+
+                        @if (i != 0)
+                        {
+
+                            <button class="sub-prod-info"> Remove Above sub product info </button>
+                        }
+
+
+
+                    </div>
+
+
+
+                }
+            }
+            else
+            {
+                <div class="additionalInfo-container">
+                    <div class="form-group">
+                        <div class="requiredStart">*</div>
+                        <label asp-for="ProductDetails[0].Price"></label>
+                        <input asp-for="ProductDetails[0].Price" />
+                        <span asp-validation-for="ProductDetails[0].Price"></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label asp-for="ProductDetails[0].PreviousPrice"></label>
+                        <input asp-for="ProductDetails[0].PreviousPrice" />
+                        <span asp-validation-for="ProductDetails[0].PreviousPrice"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="requiredStart">*</div>
+                        <label asp-for="ProductDetails[0].Size"></label>
+                        <input asp-for="ProductDetails[0].Size" />
+                        <span asp-validation-for="ProductDetails[0].Size"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="ProductDetails[0].Flavour"></label>
+                        <input asp-for="ProductDetails[0].Flavour" />
+                        <span asp-validation-for="ProductDetails[0].Flavour"></span>
+                    </div>
+                    <div class="form-group img-formgroup">
+                        <div class="requiredStart imgstar">*</div>
+                        <label asp-for="ProductDetails[0].Images"></label>
+                        <div class="img-section">
+                            <div class="img-container"><img /></div>
+
+                            <input class="img-input" asp-for="ProductDetails[0].Images" />
+                        </div>
+                        <span asp-validation-for="ProductDetails[0].Images"></span>
+                    </div>
+
+                    <div class="form-group img-formgroup">
+                        <div class="requiredStart ">*</div>
+                        <label asp-for="ProductDetails[0].CategoryDetailId"></label>
+                        <select class="categoryOptions" asp-for="ProductDetails[0].CategoryDetailId">
+
+                            @foreach (var item in Model.CategoriesDetail)
+                            {
+                                <option value="@item.Value">@item.Text</option>
+
+                            }
+
+
+                        </select>
+                        <span asp-validation-for="ProductDetails[0].CategoryDetailId"></span>
+                    </div>
+
+
+
+
+
+
+                </div>
+            }
+
+
+
+
+
+
+        </div>
+        <button style="background:#0ba813" class="complete-order add-additional-product">Add Additional sub product</button>
+
+
+        <button class="complete-order" type="submit">Add Product</button>
+
+
+
+
+    </div>
+
+
+
+</form>
+<script src="~/Scripts/AddProductScripts.js"></script>

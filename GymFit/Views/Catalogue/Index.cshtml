@@ -17,37 +17,7 @@
         <h1 class="product-category-title">@Model.Category.Name</h1>
     </div>
 
-    <div class="side-options">
-
-        <label class="price-label">Price</label>
-        <div class="price-option">
-
-            <label class="lowestPrice selector">Low</label>
-            <label class="highestPrice selector">High</label>
-
-        </div>
-
-        <div class="brand">
-
-            <label class="brand-label">Brand</label>
-
-            <ul class="brand-options">
-
-                <li>All</li>
-                @foreach (var item in Model.Products)
-                {
-                    <li>@item.Product.Brand</li>
-                }
-
-
-
-            </ul>
-
-
-        </div>
-
-
-    </div>
+ 
 
     <div class="product-grid">
 

@@ -176,5 +176,10 @@ namespace GymFit.Models
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<Product> SearchProductByName(string name)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

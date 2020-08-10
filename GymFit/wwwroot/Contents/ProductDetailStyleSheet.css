@@ -43,6 +43,7 @@ html{
 }
     .product-detail-img-container img {
         width: 100%;
+        max-height:400px;
         object-fit: contain;
         display:none;
     }
@@ -63,6 +64,7 @@ html{
 
 .price-container {
     position: relative;
+    margin: 2em 0;
 }
 
     .price-container .product-price {
@@ -186,9 +188,7 @@ html{
     }
 
     .price-container .product-price {
-        position: absolute;
         display: none;
-        top: -25px;
     }
 
     .add-to-cart-button {

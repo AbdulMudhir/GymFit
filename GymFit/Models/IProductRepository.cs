@@ -22,6 +22,7 @@ namespace GymFit.Models
 
         public void RemoveProduct(Product product);
 
+        public IEnumerable<Product> SearchProductByName(string name);
 
         public void UpdateProduct(Product product);
     }

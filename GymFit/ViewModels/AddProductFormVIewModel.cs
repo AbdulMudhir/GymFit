@@ -11,6 +11,9 @@ namespace GymFit.ViewModels
     public class AddProductFormVIewModel
     {
 
+        public int ProductId { get; set; }
+
+
         [Required]
         public string Name { get; set; }
 

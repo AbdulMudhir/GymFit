@@ -51,16 +51,23 @@ namespace GymFit.Models
         public void AddProduct(Product product)
         {
             _databaseContext.Products.Add(product);
+            _databaseContext.SaveChanges();
         }
 
         public void RemoveProduct(Product product)
         {
-            throw new NotImplementedException();
+            _databaseContext.Products.Remove(product);
+            _databaseContext.SaveChanges();
         }
 
         public void UpdateProduct(Product product)
         {
-            throw new NotImplementedException();
+            _databaseContext.SaveChanges();
+
+        }
+        public IEnumerable<Product> SearchProductByName(string name)
+        {
+            return _databaseContext.Products.Where(p => p.Name.Contains(name));
         }
     }
 }

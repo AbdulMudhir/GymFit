@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Azure.Storage.Blobs;
+using GymFit.BlobStorageServices;
 using GymFit.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -42,6 +44,8 @@ namespace GymFit
             services.AddScoped<IProductRepository, ProductRepository>();
                  services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<ShoppingCart>( sp => ShoppingCart.createShoppingCart(sp));
+            services.AddSingleton(x => new BlobServiceClient(Configuration.GetConnectionString("AccessKey")));
+            services.AddSingleton<IBlobService, BlobService>();
 
             services.AddHttpContextAccessor();
             services.AddDistributedMemoryCache();

@@ -13,6 +13,7 @@ namespace GymFit.ViewModels
     {
 
 
+
         public int StockAmount { get; set; }
 
 
@@ -22,6 +23,10 @@ namespace GymFit.ViewModels
         public string Flavour { get; set; }
 
         public int Weights { get; set; }
+
+
+
+        public string ImageUrl { get; set; }
 
         [DisplayName("Image")]
         [DataType(DataType.Upload)]

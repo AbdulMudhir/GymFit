@@ -24,14 +24,24 @@
                 <a a asp-controller="Home" asp-action="index" class="logo">
                     Gym Fit <img class="logo-img" src="~/Images/logo.svg">
                 </a>
-                <div class="search-bar"> <input placeholder="Search entire store " type="text" /></div>
+                @*<div class="search-bar"> <input placeholder="Search entire store " type="text" /></div>*@
+                <div class="searchbox-container search-bar ">
+                    <i class="fa fa-search search-icon row justifiy-center align-center" aria-hidden="true"></i>
+
+                    <input type="text" id="searchBox" placeholder="What are you looking for..." autocomplete="off" required />
+                    <ul class="searchResult">
+                    </ul>
+                    <span class="field-validation-error searcherror">No Results Found</span>
+                </div>
+
+
                 <div class="cart-container">
                     <a class="admin-portal" asp-controller="Admin" asp-action="index">Admin Portal</a>
                     <a asp-controller="cart" asp-action="index" asp- class="cart">
                         <div class="cart-img">
                             <span class="iconify cart-img" data-inline="false" data-icon="ant-design:shopping-cart-outlined" style="color: #ffffff; font-size: 26.630435943603516px;">
                             </span><div class="cart-total">0</div>
-                        </div> <p class="cart-price"><span class="price-divider">-</span><span id="currency">£</span> <p class="cart-total_price" style="font-weight: 700;">0</p> 
+                        </div> <p class="cart-price"><span class="price-divider">-</span><span id="currency">£</span> <p class="cart-total_price" style="font-weight: 700;">0</p>
 
                     </a>
                 </div>
@@ -57,6 +67,7 @@
         @RenderSection("Scripts", required: false)
         <script src="~/Scripts/StoreScript.js"></script>
         <script src="~/Scripts/sharedCartScript.js"></script>
+        <script src="~/Scripts/searchbox.js"></script>
         <script>
             updateCartTotalPrice()
         </script>

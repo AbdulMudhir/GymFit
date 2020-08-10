@@ -44,10 +44,9 @@
                         <td><div class="admin-img-check"><img src="@Url.Content(Item.ProductDetail.First().Images.First().Url)" /></div></td>
                         <td class="current-price-admin">£@Item.ProductDetail.First().Price</td>
                         <td class="admin-edit">
-                            <span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="color: #ffffff; font-size: 16px;"></span>
-                            <span class="iconify" data-inline="false" data-icon="emojione-monotone:heavy-multiplication-x" style="color: #ea1f12; font-size: 16px;"></span>
-
-                        </td>
+                           <a asp-controller="product" asp-action="edit" asp-route-id="@Item.ProductId"><span class="iconify" data-inline="false" data-icon="bx:bx-edit" style="color: #ffffff; font-size: 16px;"></span></a>
+                           <a asp-controller="product" asp-action="Remove" asp-route-id="@Item.ProductId"><span class="iconify" data-inline="false" data-icon="emojione-monotone:heavy-multiplication-x" style="color: #ea1f12; font-size: 16px;"></span></a>
+</td>
                     </tr>
                 }
 

@@ -1,11 +1,13 @@
-﻿using System;
+﻿using Azure.Storage.Blobs;
+using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace GymFit.BlobStorageServices
 {
-    public class BlobService
+    public class BlobService:IBlobService
     {
 
 
@@ -19,7 +21,7 @@ namespace GymFit.BlobStorageServices
         public async Task<string> UploadFileBlobAsync(IFormFile file, string filename)
         {
 
-            BlobContainerClient containerClient = _blobServiceClient.GetBlobContainerClient("productimages");
+            BlobContainerClient containerClient = _blobServiceClient.GetBlobContainerClient("productimagesgym");
 
 
 

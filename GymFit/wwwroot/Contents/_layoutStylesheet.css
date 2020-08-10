@@ -144,10 +144,44 @@ body {
     }
 
     .search-bar {
+        position:relative;
         width: 60%;
         display: flex;
         align-items: center;
         justify-items: center;
+    }
+
+    .searchResult {
+        position: absolute;
+        width: 100%;
+        background: white;
+        color: black;
+        top: 40px;
+        z-index:10;
+        box-sizing: border-box;
+        display:none;
+    }
+
+        .searchResult li {
+            margin: .5em 0;
+            padding: 0em 1em;
+        }
+
+            .searchResult li a {
+                text-decoration: none;
+            }
+
+                .searchResult li a:hover {
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+
+    .searcherror {
+        position: absolute;
+        top: 40px;
+        visibility: hidden;
+        opacity: 0;
+        transition: all .5s;
     }
 
         .search-bar input {
