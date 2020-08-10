@@ -57,7 +57,7 @@ function removeItem(event) {
     const parentContainer = event.target.parentElement.parentElement;
     const productDetailId = parentContainer.attributes["id"].value;
 
-
+    console.log(productDetailId)
     const ajax = new XMLHttpRequest();
 
     ajax.open("POST", "/Cart/removeCartItem");

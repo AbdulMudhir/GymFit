@@ -29,11 +29,13 @@ namespace GymFit
         {
 
 
-          
-           
-            
-            services.AddRazorPages().AddRazorRuntimeCompilation();
+            services.AddControllers().AddNewtonsoftJson(options =>
+              options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+          );
+
+
             services.AddControllersWithViews().AddJsonOptions(opts => opts.JsonSerializerOptions.PropertyNamingPolicy = null);
+            services.AddRazorPages().AddRazorRuntimeCompilation();
 
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();

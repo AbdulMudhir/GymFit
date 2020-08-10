@@ -1,4 +1,5 @@
 ﻿using GymFit.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -21,7 +22,10 @@ namespace GymFit.ViewModels
 
         public string Brand { get; set; }
 
-        public List<AddProductDetails> ProductDetails { get; set; }
+        public List<SelectListItem> CategoriesDetail { get; set; } = new List<SelectListItem>();
+
+
+        public List<AddProductDetails> ProductDetails { get; set; } 
 
         public AddProductDetails ProductDetail { get; set; } 
 

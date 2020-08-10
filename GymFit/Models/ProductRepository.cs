@@ -28,7 +28,9 @@ namespace GymFit.Models
 
         public Product GetProductByID(int id)
         {
-            return AllProducts.FirstOrDefault(p => p.ProductId == id);
+            return _databaseContext.Products.Where(p => p.ProductId == id).Include(p => p.ProductDetail).
+            ThenInclude(p => p.CategoryDetail).ThenInclude(p => p.Category)
+            .Include(p => p.ProductDetail).ThenInclude(p => p.Images).First();
         }
 
         public IEnumerable<ProductDetail> GetProductsByCategoryId(int id)

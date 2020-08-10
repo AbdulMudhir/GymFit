@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GymFit.Models
 {
-    public class CategoryRepository:ICategoryRepository
+    public class CategoryRepository : ICategoryRepository
     {
 
         private readonly DatabaseContext _databaseContext;
@@ -16,7 +16,14 @@ namespace GymFit.Models
             _databaseContext = databaseContext;
         }
 
-        public IEnumerable<Category> AllCategory => _databaseContext.Categories.Include(c => c.CategoryDetails).ThenInclude(cd => cd.SubCategory);
+
+
+        public IEnumerable<Category> AllCategory => 
+            _databaseContext.Categories.Include(c => c.CategoryDetails).ThenInclude(cd => cd.SubCategory);
+
+        public IEnumerable<CategoryDetail> AllCategoryDetails => 
+            _databaseContext.CategoryDetails.Include(d => d.Category)
+            .Include(d => d.SubCategory);
 
         public Category GetCategoryByID(int id)
         {

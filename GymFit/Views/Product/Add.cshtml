@@ -61,6 +61,79 @@
             <span asp-validation-for="@Model.Safety"></span>
         </div>
 
+        <div class="secondary-form-container">
+            <div class="additionalInfo-container">
+                <div class="form-group">
+                    <div class="requiredStart">*</div>
+                    <label asp-for="ProductDetails[0].Price"></label>
+                    <input asp-for="ProductDetails[0].Price" />
+                    <span asp-validation-for="ProductDetails[0].Price"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="ProductDetails[0].PreviousPrice"></label>
+                    <input asp-for="ProductDetails[0].PreviousPrice" />
+                    <span asp-validation-for="ProductDetails[0].PreviousPrice"></span>
+                </div>
+
+                <div class="form-group">
+                    <div class="requiredStart">*</div>
+                    <label asp-for="ProductDetails[0].Size"></label>
+                    <input asp-for="ProductDetails[0].Size" />
+                    <span asp-validation-for="ProductDetails[0].Size"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ProductDetails[0].Flavour"></label>
+                    <input asp-for="ProductDetails[0].Flavour" />
+                    <span asp-validation-for="ProductDetails[0].Flavour"></span>
+                </div>
+                <div class="form-group img-formgroup">
+                    <div class="requiredStart imgstar">*</div>
+                    <label asp-for="ProductDetails[0].Images"></label>
+                    <div class="img-section">
+                        <div class="img-container"><img /></div>
+
+                        <input class="img-input" asp-for="ProductDetails[0].Images" />
+                    </div>
+                    <span asp-validation-for="ProductDetails[0].Images"></span>
+                </div>
+
+                <div class="form-group img-formgroup">
+                    <div class="requiredStart ">*</div>
+                    <label asp-for="ProductDetails[0].CategoryDetailId"></label>
+                    <select class="categoryOptions" asp-for="ProductDetails[0].CategoryDetailId">
+
+                        @foreach (var item in Model.CategoriesDetail)
+                        {
+                            <option value="@item.Value">@item.Text</option>
+
+                        }
+
+
+                    </select>
+                    <span asp-validation-for="ProductDetails[0].CategoryDetailId"></span>
+                </div>
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <button style="background:#0ba813" class="complete-order add-additional-product">Add Additional sub product</button>
+
 
         <button class="complete-order" type="submit">Add Product</button>
 
@@ -69,67 +142,7 @@
 
     </div>
 
-    <div class="secondary-form-container">
-        <div class="shiptolabel"> Subproduct Information </div>
 
-
-        <div class="form-group">
-            <div class="requiredStart">*</div>
-            <label style="margin-top:0;" asp-for="ProductDetails[0].Price"></label>
-            <input asp-for="ProductDetails[0].Price" />
-            <span asp-validation-for="ProductDetails[0].Price"></span>
-        </div>
-
-
-        <div class="form-group">
-            <label  asp-for="ProductDetails[0].PreviousPrice"></label>
-            <input asp-for="ProductDetails[0].PreviousPrice" />
-            <span asp-validation-for="ProductDetails[0].PreviousPrice"></span>
-        </div>
-
-        <div class="form-group">
-            <div class="requiredStart">*</div>
-            <label  asp-for="ProductDetails[0].Size"></label>
-            <input asp-for="ProductDetails[0].Size" />
-            <span asp-validation-for="ProductDetails[0].Size"></span>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="ProductDetails[0].Flavour"></label>
-            <input asp-for="ProductDetails[0].Flavour" />
-            <span asp-validation-for="ProductDetails[0].Flavour"></span>
-        </div>
-        <div class="form-group img-formgroup">
-            <div class="img-container"><img src="" /></div>
-            <div class="requiredStart imgstar">*</div>
-            <label asp-for="ProductDetails[0].Images"></label>
-            <input asp-for="ProductDetails[0].Images" />
-            <span asp-validation-for="ProductDetails[0].Images"></span>
-        </div>
-
-
-        @*<div class="form-group">
-            <div class="requiredStart">*</div>
-            <label style="margin-top:0;" asp-for="ProductDetail.Price"></label>
-            <input asp-for="ProductDetail.Price" />
-            <span asp-validation-for="ProductDetail.Price"></span>
-        </div>
-        <div class="form-group">
-            <div class="requiredStart">*</div>
-            <label style="margin-top:0;" asp-for="ProductDetail.Size"></label>
-            <input asp-for="ProductDetail.Size" />
-            <span asp-validation-for="ProductDetail.Size"></span>
-        </div>*@
-
-
-
-
-
-        <button class="complete-order">Add Additional sub product</button>
-
-
-
-
-    </div>
 
 </form>
+<script src="~/Scripts/AddProductScripts.js"></script>

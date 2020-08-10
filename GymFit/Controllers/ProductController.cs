@@ -1,6 +1,7 @@
 ﻿using GymFit.Models;
 using GymFit.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,12 @@ namespace GymFit.Controllers
     public class ProductController:Controller
     {
         IProductRepository _productRepository;
+        ICategoryRepository _categoryRepository;
 
-        public ProductController(IProductRepository productRepository)
+        public ProductController(IProductRepository productRepository, ICategoryRepository categoryRepository)
         {
             _productRepository = productRepository;
+            _categoryRepository = categoryRepository;
         }
 
         public IActionResult Detail(int id)
@@ -35,6 +38,17 @@ namespace GymFit.Controllers
         {
             var form = new AddProductFormVIewModel();
 
+            var categoryDetail = _categoryRepository.AllCategoryDetails;
+
+            foreach(var cd in categoryDetail)
+            {
+                form.CategoriesDetail.Add(
+
+                    new SelectListItem { Value = cd.CategoryDetailId.ToString(), Text =$"{ cd.Category.Name } - {cd.SubCategory.Name}" }
+                    );
+            }
+
+
 
             return View(form);
         }
@@ -48,7 +62,19 @@ namespace GymFit.Controllers
                     product.PreviousPrice = product.Price;
                 }
 
+
+
             }
+            var categoryDetail = _categoryRepository.AllCategoryDetails;
+            foreach (var cd in categoryDetail)
+            {
+                form.CategoriesDetail.Add(
+
+                    new SelectListItem { Value = cd.CategoryDetailId.ToString(), Text = $"{ cd.Category.Name } - {cd.SubCategory.Name}" }
+                    );
+            }
+
+
 
             return View(form);
         }

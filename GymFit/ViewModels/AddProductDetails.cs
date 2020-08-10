@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,10 +23,15 @@ namespace GymFit.ViewModels
 
         public int Weights { get; set; }
 
+        [DisplayName("Image")]
         [DataType(DataType.Upload)]
         [Required(ErrorMessage ="The image is required")]
         public IFormFile Images { get; set; }
 
+
+
+
+        [DisplayName("Category")]
         public int CategoryDetailId { get; set; }
 
 
