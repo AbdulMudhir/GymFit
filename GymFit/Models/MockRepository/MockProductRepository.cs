@@ -161,5 +161,20 @@ namespace GymFit.Models
         {
             throw new NotImplementedException();
         }
+
+        public void AddProduct(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveProduct(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateProduct(Product product)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

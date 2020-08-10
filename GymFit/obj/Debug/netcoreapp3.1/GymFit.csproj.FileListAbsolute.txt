@@ -415,10 +415,10 @@ C:\Users\Abdul\source\repos\GymFit\GymFit\bin\Debug\netcoreapp3.1\Microsoft.Enti
 C:\Users\Abdul\source\repos\GymFit\GymFit\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\Abdul\source\repos\GymFit\GymFit\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\Abdul\source\repos\GymFit\GymFit\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
-C:\Users\Abdul\source\repos\GymFit\GymFit\obj\Debug\netcoreapp3.1\GymFit.csproj.CoreCompileInputs.cache
-C:\Users\Abdul\source\repos\GymFit\GymFit\obj\Debug\netcoreapp3.1\GymFit.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Abdul\source\repos\GymFit\GymFit\obj\Debug\netcoreapp3.1\GymFit.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Abdul\source\repos\GymFit\GymFit\obj\Debug\netcoreapp3.1\Razor\Views\CheckOut\Index.cshtml.g.cs
 C:\Users\Abdul\source\repos\GymFit\GymFit\obj\Debug\netcoreapp3.1\Razor\Views\CheckOut\OrderComplete.cshtml.g.cs
 C:\Users\Abdul\source\repos\GymFit\GymFit\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Index.cshtml.g.cs
 C:\Users\Abdul\source\repos\GymFit\GymFit\obj\Debug\netcoreapp3.1\Razor\Views\Product\Add.cshtml.g.cs
+C:\Users\Abdul\source\repos\GymFit\GymFit\bin\Debug\netcoreapp3.1\Azure.Core.dll
+C:\Users\Abdul\source\repos\GymFit\GymFit\bin\Debug\netcoreapp3.1\Azure.Storage.Blobs.dll
+C:\Users\Abdul\source\repos\GymFit\GymFit\bin\Debug\netcoreapp3.1\Azure.Storage.Common.dll

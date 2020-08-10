@@ -1,6 +1,7 @@
 ﻿
 
 const subButtons = document.querySelectorAll(".sub-prod-info");
+removeButtons();
 
 function updateInputButton() {
     const inputButton = document.querySelectorAll(".img-input");

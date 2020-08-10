@@ -18,6 +18,11 @@ namespace GymFit.Models
 
         public IEnumerable<ProductDetail> GetProductsByCategoryDetailId(int categoryDetailId);
 
+        public void AddProduct(Product product);
 
+        public void RemoveProduct(Product product);
+
+
+        public void UpdateProduct(Product product);
     }
 }

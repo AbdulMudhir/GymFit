@@ -65,6 +65,16 @@ namespace GymFit.Controllers
 
 
             }
+
+            if(ModelState.IsValid)
+            {
+                var newProduct = new Product()
+                {
+
+                };
+            }
+
+
             var categoryDetail = _categoryRepository.AllCategoryDetails;
             foreach (var cd in categoryDetail)
             {
@@ -73,6 +83,8 @@ namespace GymFit.Controllers
                     new SelectListItem { Value = cd.CategoryDetailId.ToString(), Text = $"{ cd.Category.Name } - {cd.SubCategory.Name}" }
                     );
             }
+
+            
 
 
 

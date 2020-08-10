@@ -48,7 +48,19 @@ namespace GymFit.Models
            
         }
 
+        public void AddProduct(Product product)
+        {
+            _databaseContext.Products.Add(product);
+        }
 
+        public void RemoveProduct(Product product)
+        {
+            throw new NotImplementedException();
+        }
 
+        public void UpdateProduct(Product product)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
