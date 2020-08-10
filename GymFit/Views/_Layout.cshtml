@@ -21,8 +21,9 @@
         <div class="container-fluid">
 
             <div class="nav-container container">
+                <div class="close-nav">x</div>
                 <a a asp-controller="Home" asp-action="index" class="logo">
-                    Gym Fit <img class="logo-img" src="~/Images/logo.svg">
+                    Gym Fit 
                 </a>
                 @*<div class="search-bar"> <input placeholder="Search entire store " type="text" /></div>*@
                 <div class="searchbox-container search-bar ">
@@ -39,14 +40,13 @@
                     <a class="admin-portal" asp-controller="Admin" asp-action="index">Admin Portal</a>
                     <a asp-controller="cart" asp-action="index" asp- class="cart">
                         <div class="cart-img">
-                            <span class="iconify cart-img" data-inline="false" data-icon="ant-design:shopping-cart-outlined" style="color: #ffffff; font-size: 26.630435943603516px;">
+                            <span class="iconify cart-img" data-inline="false" data-icon="ant-design:shopping-cart-outlined" >
                             </span><div class="cart-total">0</div>
                         </div> <p class="cart-price"><span class="price-divider">-</span><span id="currency">£</span> <p class="cart-total_price" style="font-weight: 700;">0</p>
 
                     </a>
                 </div>
             </div>
-            <span class="iconify humburger" data-inline="false" data-icon="cil:hamburger-menu" style="color: #ffffff; font-size: 35px;"></span>
 
             <div class="navigation">
                 @await Component.InvokeAsync("Navigation")

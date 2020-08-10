@@ -1,6 +1,15 @@
 ﻿
 
 
+
+
+document.querySelector(".close-nav").addEventListener("click", (event) => {
+
+    document.querySelector(".nav-container").style.display = "none";
+
+})
+
+
 const searchBox = document.querySelector("#searchBox");
 const searchResult = document.querySelector(".searchResult");
 

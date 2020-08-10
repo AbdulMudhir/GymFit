@@ -31,7 +31,7 @@
         <div class="form-group">
             <div class="requiredStart">*</div>
             <label style="margin-top:0;" asp-for="@Model.Name"></label>
-            <input asp-for="@Model.Name" />
+            <input maxlength="20" asp-for="@Model.Name" />
             <span asp-validation-for="@Model.Name"></span>
         </div>
 

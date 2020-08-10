@@ -66,10 +66,14 @@
             <div class="flavour-container">
                 <label>Flavour</label>
              
-                <div class="Flavour-menu prod-select">
-                    <p id="1" >Extreme Chocolate</p>
-                    
-                </div>
+                <select class="Flavour-menu prod-select">
+                    @foreach (var productDetails in Model.ProductDetail)
+                    {
+                        <option value="@productDetails.ProductDetailId">@productDetails.Flavour</option>
+
+                    }
+
+                </select>
 
 
             </div>

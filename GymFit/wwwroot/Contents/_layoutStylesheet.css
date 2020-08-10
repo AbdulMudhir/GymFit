@@ -10,8 +10,10 @@ body {
     position:absolute;
     right:20px;
     top:20px;
+    cursor:pointer;
 }
 .container-fluid {
+    overflow:hidden;
     width: 100%;
     min-height: 100%;
     background: radial-gradient(52.73% 52.73% at 50% 47.27%, #232222 0%, #111111 100%);
@@ -37,26 +39,225 @@ body {
 
 
 .nav-container {
-  
+    position: fixed;
+    z-index: 10;
+    background: white;
+    height: 100%;
+    width: 100%;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
     display: none;
 }
 
+.logo {
+    font-weight: 700;
+    font-size: 3rem;
+    margin-bottom: .6em;
+}
+
+.searchbox-container {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+#searchBox {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.searcherror {
+    text-align: center;
+    margin: .4em 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .5s;
+}
+
+.close-nav {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 1.5rem;
+}
+
+.cart{
+    margin-top:1em;
+    display:flex;
+}
+.cart-img{
+    display:flex;
+    margin-right:.2em;
+}
+.searchbox-container{
+    position:relative;
+}
+
+.searchResult {
+    position: absolute;
+    bottom: -20px;
+    width:100%;
+    padding: 0 1em;
+    z-index:15;
+    margin: 0 auto;
+    background:rgba(235, 235, 235, 0.71);
+}
+.cart-price {
+    margin-right: .5em;
+}
+.price-divider{
+    margin-right:.5em;
+}
+
+.navigation-category {
+    display: flex;
+    box-sizing: border-box;
+    flex-flow:column;
+    position: absolute;
+    align-items:center;
+    justify-content: space-between;
+    left: 0px;
+    margin-top: .5em;
+    background: white;
+   padding: 2.5em 0;
+    color: black;
+    z-index: 10;
+    font-family: Rockwell;
+    width: 100%;
+    display: none;
+}
+
+.category-card {
+    text-align:center;
+    width: 240px;
+    height: 100%;
+    margin-right: 0;
+    margin-bottom:2em;
+}
+
+.category-title {
+    font-weight: 600;
+    font-size: .8rem;
+    text-transform: uppercase;
+}
+
+.sub-category {
+    margin-top: .9em;
+    font-size: .8rem;
+    line-height: 12px;
+}
+
+    .sub-category li {
+        margin-bottom: .9em;
+    }
+
+        .sub-category li a:hover {
+            text-decoration: underline;
+        }
+
+        .sub-category li:last-child {
+            margin-bottom: 0;
+        }
+
+.category-img {
+    width: 100%;
+    margin-top: .5em;
+    height: 129px;
+}
+
+    .category-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
 
 
+.navigation {
+    display: block;
+    height: 60px;
+    background: white;
+}
 
-.navigation{
-    display:none;
-    
+.nav-content {
+    color: black;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+
+.nav-link a {
+    height: 100%;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.125rem;
+}
+
+.nav-active {
+    font-weight: 700;
+    background: #DB030D;
+    color: white;
+    cursor: none;
+}
+
+.Home:hover {
+    font-weight: 700;
+    background: #DB030D;
+    color: white;
+    cursor: none;
+}
+
+.store-button {
+    box-sizing: border-box;
+    position: relative;
+    cursor: pointer;
+}
+
+.store-arrow-down {
+    position: absolute;
+    right: 15px;
+    top: 53%;
+    transform: translateY(-50%) !important;
+    font-size: .8em;
 }
 
 @media(min-width:1024px) {
+    .cart-img {
+        position: relative;
+        font-size: 1.5rem;
+    }
     .humburger {
         display: none;
+    }
+    .close-nav{
+        display:none;
+    }
+    .admin-portal{
+        font-size:1rem;
+        display:block;
+    }
+
+    .nav-container {
+        position: relative;
+        padding-top: 1.2em;
+        display: flex !important;
+        flex-flow: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+        background: unset;
+        color: white;
     }
 
     .navigation-category {
         display: flex;
+        flex-flow:row;
         box-sizing: border-box;
         position: absolute;
         justify-content: space-between;
@@ -77,6 +278,8 @@ body {
         width:240px;
         height:100%;
         margin-right:2rem;
+        text-align:unset;
+        margin-bottom:0;
        
     }
 
@@ -115,13 +318,7 @@ body {
         }
 
 
-        .nav-container {
-            padding-top: 1.2em;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
+    
 
     .logo {
         display: flex;
@@ -225,6 +422,7 @@ body {
         justify-content: center;
         align-items: center;
         position: relative;
+        margin-top:0;
     }
 
     .cart-img {

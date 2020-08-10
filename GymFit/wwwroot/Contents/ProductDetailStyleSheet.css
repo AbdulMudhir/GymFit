@@ -8,6 +8,7 @@ html{
 .product-detail-grid {
     padding-top: 3.625em;
     box-sizing: border-box;
+    overflow:hidden;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: .1fr 1fr .15fr 0fr 0fr;
@@ -192,7 +193,6 @@ html{
     }
 
     .add-to-cart-button {
-       margin-top:0;
     }
     .option-containers{
         flex-flow:row;
