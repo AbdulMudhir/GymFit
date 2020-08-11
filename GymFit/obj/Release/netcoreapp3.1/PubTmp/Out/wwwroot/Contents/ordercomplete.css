@@ -1,0 +1,42 @@
+﻿body {
+}
+
+.order-complete-container {
+    min-height: 100vh;
+    display:flex;
+    flex-flow:column;
+    padding-top:8rem;
+    align-items:center;
+}
+
+    .order-complete-container h1 {
+        font-weight: bold;
+        font-size: 2rem;
+        text-align:center;
+        /* identical to box height */
+    }
+    .order-complete-container h4 {
+        font-size: 1.2rem;
+        text-align:center;
+        margin-top:1.2em;
+        color: #DCD4D4;
+    }
+    .order-complete-container a {
+        margin-top: 3em;
+        width: 170px;
+        height: 40px;
+        background: #DB030D;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+@media(min-width:1024px) {
+
+    .order-complete-container h1 {
+        font-size: 4rem;
+    }
+
+    .order-complete-container h4 {
+        font-size: 1.8rem;
+    }
+}

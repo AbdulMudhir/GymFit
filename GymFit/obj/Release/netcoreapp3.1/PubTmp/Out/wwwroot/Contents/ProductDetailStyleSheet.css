@@ -1,0 +1,210 @@
+﻿body {
+}
+
+html{
+    font-size:10px;
+}
+
+.product-detail-grid {
+    padding-top: 3.625em;
+    box-sizing: border-box;
+    overflow:hidden;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: .1fr 1fr .15fr 0fr 0fr;
+    grid-template-areas: "back" "image" "info" "safety" "ingredient " "description";
+    grid-row-gap: 1em;
+}
+
+
+    
+
+.back-container {
+    grid-area: back;
+    cursor: pointer;
+    display:flex;
+    align-items:center;
+}
+
+.back-container-title {
+    display: inline;
+    font-size: 1.875rem;
+    border-bottom: 1px solid #E0000A;
+    padding-bottom: .1em;
+    box-sizing: border-box;
+}
+
+.product-detail-img-container {
+    grid-area: image;
+    max-width: 400px;
+    max-height: 400px;
+    width:100%;
+    justify-self: center;
+    position: relative;
+}
+    .product-detail-img-container img {
+        width: 100%;
+        max-height:400px;
+        object-fit: contain;
+        display:none;
+    }
+        .product-detail-img-container img:first-child{
+            z-index:1;
+            display:block;
+        }
+
+
+
+.product-detail-info {
+    grid-area: info;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+
+
+.price-container {
+    position: relative;
+    margin: 2em 0;
+}
+
+    .price-container .product-price {
+      
+        display: none;
+        top:-25px;
+    }
+
+        .price-container .product-price:first-child {
+            z-index: 1;
+            display: flex;
+        }
+
+
+
+.current-price {
+    display:flex;
+    font-size: 2.7rem;;
+    line-height: 59px;
+    margin-right:.5em;
+}
+.previous-price {
+    font-size: 1.9rem;
+    line-height: 35px;
+    text-decoration-line: line-through;
+    color: #EA030E;
+}
+
+.option-containers{
+    display:flex;
+    flex-flow:column;
+}
+.size-container{
+    margin-right:1em;
+}
+.flavour-container{
+    margin-top:1.5em;
+}
+
+.size-menu {
+}
+
+.prod-select {
+    color: white;
+    border: none;
+    padding: 0 .5em;
+    margin-top: .4em;
+    background: #323232;
+    max-width: 224px;
+    width:100%;
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.add-to-cart-button {
+    margin-top: 1.5em;
+    max-width: 224px;
+    width: 100%;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #DB030D;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.product-safety {
+    grid-area: safety;
+    margin-top:3em;
+}
+.product-ingredient {
+    grid-area: ingredient;
+    margin-top: 1em;
+}
+.product-description {
+    grid-area: description;
+    margin-top: 1em;
+    border-top:  1px solid #DB030D;
+    padding-top:1em;
+}
+
+.product-label{
+    font-weight:700;
+
+}
+.product-content {
+    margin-top: 1em;
+    color: #c3c2c2 ;
+    line-height: 19px;
+    font-size:.9rem;
+}
+
+.product-name {
+    font-weight: 500;
+    font-size: 4rem;
+    line-height: 75px;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+}
+@media(min-width:1024px) {
+
+    html{
+        font-size:16px;
+    }
+
+    .product-detail-grid {
+        padding-top: 3.625em;
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: .1fr 1fr .15fr .15fr .5fr;
+        grid-template-areas: "back back" "image info" "safety safety" "ingredient ingredient" "description description";
+        grid-row-gap: 1em;
+    }
+
+    .price-container .product-price {
+        display: none;
+    }
+
+    .add-to-cart-button {
+    }
+    .option-containers{
+        flex-flow:row;
+    }
+    .flavour-container {
+        margin-top: 0em;
+    }
+    .prod-select {
+        
+        width: 224px;
+      
+    }
+
+
+}

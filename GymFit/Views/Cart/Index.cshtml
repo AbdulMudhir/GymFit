@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Cart";
     Layout = "~/Views/_Layout.cshtml";
 }
 
@@ -17,22 +17,22 @@
     </div>
 
     <div class="cart-grid-container">
+        @if (Model.shoppingCartList.Count != 0)
+        {
 
-        <table class="cart-table" style="width:100%">
-            <tr>
-                <th class="col-quantity col">Quantity</th>
-                <th class="col-name col">Name</th>
-                <th class="col-category col">Category</th>
-                <th class="col-size col">Size</th>
-                <th class="col-img col">Image</th>
-                <th class="col-price col">Price</th>
-                <th class="col-totalPrice col">Total Price</th>
-            </tr>
+            <table class="cart-table" style="width:100%">
+                <tr>
+                    <th class="col-quantity col">Quantity</th>
+                    <th class="col-name col">Name</th>
+                    <th class="col-category col">Category</th>
+                    <th class="col-size col">Size</th>
+                    <th class="col-img col">Image</th>
+                    <th class="col-price col">Price</th>
+                    <th class="col-totalPrice col">Total Price</th>
+                </tr>
 
 
 
-            @if (Model.shoppingCartList != null)
-            {
 
                 @foreach (var cartItem in Model.shoppingCartList)
                 {
@@ -49,21 +49,34 @@
                     </tr>
                 }
 
+
+
+
+            </table>
+
+
+            @if (Model.shoppingCartList.Count != 0)
+            {
+
+                <div class="checkoutbutton-container"><a asp-controller="CheckOut" asp-action="index" class="checkout-button">Checkout</a></div>
             }
 
-        
-        </table>
-
-
-        @if (Model.shoppingCartList.Count != 0)
-        {
-
-            <div class="checkoutbutton-container"><a asp-controller="CheckOut" asp-action="index" class="checkout-button">Checkout</a></div>
         }
+        else
+        {
+            <link href="~/Contents/ordercomplete.css" rel="stylesheet" />
 
-        </div>
+            <div class="order-complete-container">
+                <h1>Your Cart is Empty!</h1>
+            
 
+                <a asp-controller="home" asp-action="index">Back to shop</a>
 
+            </div>
+        }
+    </div>
+
+        
 
 
 

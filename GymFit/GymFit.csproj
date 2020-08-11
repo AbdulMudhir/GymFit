@@ -11,6 +11,8 @@
     <Compile Remove="Migrations\20200808195224_fixedSupplments.Designer.cs" />
     <Compile Remove="Migrations\20200808201234_categoryTst.cs" />
     <Compile Remove="Migrations\20200808201234_categoryTst.Designer.cs" />
+    <Compile Remove="Migrations\20200810231506_initialmigration.cs" />
+    <Compile Remove="Migrations\20200810231506_initialmigration.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

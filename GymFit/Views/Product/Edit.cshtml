@@ -102,7 +102,7 @@
                             <div class="img-section">
                                 <div class="img-container"><img src="@Url.Content(Model.ProductDetails[i].ImageUrl)"/></div>
 
-                                <input class="img-input" asp-for="ProductDetails[i].Images" />
+                                <input class="img-input" asp-for="ProductDetails[i].Images" accept="image/*"/>
                             </div>
                             <span asp-validation-for="ProductDetails[i].Images"></span>
                         </div>
@@ -172,7 +172,7 @@
                         <div class="img-section">
                             <div class="img-container"><img /></div>
 
-                            <input class="img-input" asp-for="ProductDetails[0].Images" />
+                            <input class="img-input" asp-for="ProductDetails[0].Images" accept="image/*"/>
                         </div>
                         <span asp-validation-for="ProductDetails[0].Images"></span>
                     </div>

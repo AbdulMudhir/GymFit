@@ -1,0 +1,123 @@
+﻿body {
+}
+
+.admin-home {
+    padding-top: 3.625em;
+    box-sizing: border-box;
+    display: grid;
+}
+
+.admin-title-container{
+    display:flex;
+    height:40px;
+}
+.admin-title-container h1 {
+    display: inline-block;
+    font-size: 1.875rem;
+    border-bottom: 2px solid #960F15;
+    text-transform: none;
+    padding-bottom: .2em;
+    width:20%;
+}
+.add-product{
+    background:#DB030D;
+    height:100%;
+    width:170px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+ 
+
+}
+.add{
+    width:80%;
+    display:flex;
+    justify-content:flex-end;
+}
+.admin-grid-container {
+    margin-top: 1em;
+}
+
+.column {
+    display: flex;
+    justify-content: space-between;
+}
+
+.col {
+    background: #323232;
+    height: 57px;
+    margin: 0 .4em;
+    vertical-align: central;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.admin-table {
+    border-collapse: separate;
+    border-spacing: .5em 2em;
+}
+
+.row td {
+    text-align: center;
+}
+
+.admin-img-check img {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.quantityInput {
+    background: #323232;
+    display: inline-block;
+    color: white;
+    border: none;
+    text-align: center;
+}
+
+    .quantityInput::-webkit-outer-spin-button,
+    .quantityInput::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .quantityInput[type=number] {
+        -moz-appearance: textfield;
+    }
+
+
+
+
+
+
+
+.total-price-admin {
+    position: relative;
+}
+
+.remove-admin-item {
+    position: absolute;
+    left: -40px;
+    top: -15px;
+    color: red;
+    cursor: pointer;
+}
+
+.checkoutbutton-container {
+    margin-top: 2.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .checkoutbutton-container a {
+        font-size: 1.1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #DB030D;
+        max-width: 230px;
+        width: 230px;
+        max-height: 56px;
+        height: 56px;
+    }
